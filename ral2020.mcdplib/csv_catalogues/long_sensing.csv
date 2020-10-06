@@ -20,13 +20,3 @@ modelAce7gm,16100000.0,7.0,1,1800.0,105.0,3.6
 modelAce5gm,20200000.0,5.0,1,2220.0,105.0,3.6
 modelAce15um,24400000.0,15.0,1,2630.0,90.0,3.6
 modelPointgrey,1400000.0,15.0,1,350.0,58.0,2.5
-
-
- provides false_positives [dimensionless]
-   provides false_negatives [dimensionless]
-   provides accuracy [dimensionless]
-   provides frequency [Hz]
-   provides environment [dimensionless]
-   requires cost [CHF]
-   requires mass [g]
-   requires power [W]
