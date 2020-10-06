@@ -1,0 +1,15 @@
+F:
+  - ops
+R:
+  - CHF
+  - g
+  - W
+
+implementations:
+  model1:
+    f_max:
+    - "1 ops"
+    r_min:
+    - "1 CHF"
+    - "1 g"
+    - "1 W"
