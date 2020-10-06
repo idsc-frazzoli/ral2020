@@ -1,0 +1,8 @@
+catalogue {
+
+provides implement_brake_control [dimensionless]
+requires computation [ops]
+
+model1 | 1 | 10 ops
+model2 | 2 | 5 ops
+}

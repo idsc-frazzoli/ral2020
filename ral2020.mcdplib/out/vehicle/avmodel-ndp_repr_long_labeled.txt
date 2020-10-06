@@ -1,0 +1,266 @@
+CompositeNDP
+ provides speed_cruise  [R[m/s]]
+ provides environment  [R[]]
+ requires fixed_cost  [R[CHF]]
+ requires operational_cost  [R[CHF/mi]]
+ requires danger  [R[kg*m/s]]
+ requires energy_externalities  [R[g/mi]]
+ requires discomfort  [R[]]
+ 28 nodes, 42 edges
+ connections: 
+- Constraint(long_simulation_model.v_max <= vehicle_model.speed_max)
+- Constraint(long_simulation_model.acc_max <= vehicle_model.acc_max)
+- Constraint(long_simulation_model.acc_min <= vehicle_model.acc_min)
+- Constraint(vehicle_model.system_noise <= lane_simulation_model.system_noise)
+- Constraint(lane_simulation_model.control_effort <= discomfort_model.control_effort)
+- Constraint(long_simulation_model.discomfort_brake <= discomfort_model.brake_discomfort)
+- Constraint(lane_simulation_model.tracking_error <= _conversion1._op0)
+- Constraint(_conversion1._res <= _lim1._l)
+- Constraint(long_simulation_model.computation <= _sum1._term0)
+- Constraint(lane_simulation_model.computation <= _sum1._term1)
+- Constraint(_sum1.computation_total <= computing_model.computation)
+- Constraint(lane_simulation_model.cost <= _sum2._term01)
+- Constraint(vehicle_model.cost_fix_veh <= _sum2._term11)
+- Constraint(computing_model.cost <= _sum2._term2)
+- Constraint(long_simulation_model.cost <= _sum3._term02)
+- Constraint(_sum2._result <= _sum3._term12)
+- Constraint(lane_simulation_model.power <= _sum4._term03)
+- Constraint(computing_model.power <= _sum4._term13)
+- Constraint(long_simulation_model.power <= _sum5._term04)
+- Constraint(_sum4._result2 <= _sum5._term14)
+- Constraint(_sum5.power_total <= vehicle_model.power)
+- Constraint(lane_simulation_model.mass <= _sum6._term05)
+- Constraint(computing_model.mass <= _sum6._term15)
+- Constraint(long_simulation_model.mass <= _sum7._term06)
+- Constraint(_sum6._result3 <= _sum7._term16)
+- Constraint(_sum7.mass_total <= vehicle_model.extra_mass)
+- Constraint(_sum3.cost_total <= _res_fixed_cost.fixed_cost)
+- Constraint(_fun_speed_cruise.speed_cruise <= long_simulation_model.speed_cruise)
+- Constraint(long_simulation_model.risk <= _prod1._op01)
+- Constraint(long_simulation_model.hazard <= _prod1._op1)
+- Constraint(_prod1.danger_from_simulation <= _res_danger.danger)
+- Constraint(vehicle_model.cost_op_veh <= _conversion2._op02)
+- Constraint(_conversion2._res2 <= _res_operational_cost.operational_cost)
+- Constraint(vehicle_model.energy_externalities <= _conversion3._op03)
+- Constraint(_conversion3._res3 <= _res_energy_externalities.energy_externalities)
+- Constraint(discomfort_model.discomfort <= _res_discomfort.discomfort)
+- Constraint(_c._c <= vehicle_model.capacity)
+- Constraint(long_simulation_model.latency_braking <= _limit1._limit)
+- Constraint(_constant1._out <= vehicle_model.driving_range)
+- Constraint(_join_fname1._environment_0 <= long_simulation_model.environment)
+- Constraint(_join_fname1._environment_1 <= lane_simulation_model.environment)
+- Constraint(_fun_environment.environment <= _join_fname1._a)
+ names: 
+                       _c: LabelerNDP(('_c',))
+                            SimpleWrap
+                              requires         _c (R[person/car])
+                             <class 'mcdp_dp.dp_constant.Constant'>
+                              | Constant(R[person/car]:1.0)
+               _constant1: LabelerNDP(('_constant1',))
+                            SimpleWrap
+                              requires       _out (R[m])
+                             <class 'mcdp_dp.dp_constant.ConstantMinimals'>
+                              | ConstantMins(R[m]:1)
+             _conversion1: LabelerNDP(('_conversion1',))
+                            SimpleWrap
+                              provides       _op0 (R[])
+                              requires       _res (ℕ)
+                             <class 'mcdp_dp.conversion.Conversion'>
+                              | Conversion(CeilRNMap:R[]→ℕ,PromoteToFloat:ℕ→R[])
+             _conversion2: LabelerNDP(('_conversion2',))
+                            SimpleWrap
+                              provides      _op02 (R[CHF/m])
+                              requires      _res2 (R[CHF/mi])
+                             <class 'mcdp_dp.conversion.Conversion'>
+                              | Conversion(LinearMapComp:R[CHF/m]→R[CHF/mi],LinearMapComp:R[CHF/mi]→R[CHF/m])
+             _conversion3: LabelerNDP(('_conversion3',))
+                            SimpleWrap
+                              provides      _op03 (R[g/m])
+                              requires      _res3 (R[g/mi])
+                             <class 'mcdp_dp.conversion.Conversion'>
+                              | Conversion(LinearMapComp:R[g/m]→R[g/mi],LinearMapComp:R[g/mi]→R[g/m])
+         _fun_environment: LabelerNDP(('_fun_environment',))
+                            SimpleWrap
+                              provides environment (R[])
+                              requires environment (R[])
+                             <class 'mcdp_dp.dp_identity.FunctionNode'>
+                              | Id(R[])
+        _fun_speed_cruise: LabelerNDP(('_fun_speed_cruise',))
+                            SimpleWrap
+                              provides speed_cruise (R[m/s])
+                              requires speed_cruise (R[m/s])
+                             <class 'mcdp_dp.dp_identity.FunctionNode'>
+                              | Id(R[m/s])
+             _join_fname1: LabelerNDP(('_join_fname1',))
+                            SimpleWrap
+                              provides         _a (R[])
+                              requires _environment_0 (R[])
+                              requires _environment_1 (R[])
+                             <class 'mcdp_dp.dp_max.MeetNDualDP'>
+                              | MeetNDualDP(MuxMap:R[]→R[]×R[],MeetNMap:R[]×R[]→R[])
+                    _lim1: LabelerNDP(('_lim1',))
+                            SimpleWrap
+                              provides         _l (ℕ)
+                             <class 'mcdp_dp.dp_limit.Limit'>
+                              | Limit(ℕ, 10)
+                  _limit1: LabelerNDP(('_limit1',))
+                            SimpleWrap
+                              provides     _limit (R[s])
+                             <class 'mcdp_dp.dp_limit.LimitMaximals'>
+                              | LimitMaximals(R[s], 1 els)
+                   _prod1: LabelerNDP(('_prod1',))
+                            SimpleWrap
+                              provides      _op01 (R[])
+                              provides       _op1 (R[kg*m/s])
+                              requires danger_from_simulation (R[kg*m/s])
+                             <class 'mcdp_dp.dp_products.ProductNDP'>
+                              | ProductNDP(ProductNMap:R[]×R[kg*m/s]→R[kg*m/s])
+              _res_danger: LabelerNDP(('_res_danger',))
+                            SimpleWrap
+                              provides     danger (R[kg*m/s])
+                              requires     danger (R[kg*m/s])
+                             <class 'mcdp_dp.dp_identity.ResourceNode'>
+                              | Id(R[kg*m/s])
+          _res_discomfort: LabelerNDP(('_res_discomfort',))
+                            SimpleWrap
+                              provides discomfort (R[])
+                              requires discomfort (R[])
+                             <class 'mcdp_dp.dp_identity.ResourceNode'>
+                              | Id(R[])
+_res_energy_externalities: LabelerNDP(('_res_energy_externalities',))
+                            SimpleWrap
+                              provides energy_externalities (R[g/mi])
+                              requires energy_externalities (R[g/mi])
+                             <class 'mcdp_dp.dp_identity.ResourceNode'>
+                              | Id(R[g/mi])
+          _res_fixed_cost: LabelerNDP(('_res_fixed_cost',))
+                            SimpleWrap
+                              provides fixed_cost (R[CHF])
+                              requires fixed_cost (R[CHF])
+                             <class 'mcdp_dp.dp_identity.ResourceNode'>
+                              | Id(R[CHF])
+    _res_operational_cost: LabelerNDP(('_res_operational_cost',))
+                            SimpleWrap
+                              provides operational_cost (R[CHF/mi])
+                              requires operational_cost (R[CHF/mi])
+                             <class 'mcdp_dp.dp_identity.ResourceNode'>
+                              | Id(R[CHF/mi])
+                    _sum1: LabelerNDP(('_sum1',))
+                            SimpleWrap
+                              provides     _term0 (R[op])
+                              provides     _term1 (R[op])
+                              requires computation_total (R[op])
+                             <class 'mcdp_dp.dp_sum.SumNDP'>
+                              | SumNDP(SumNMap(R[op]×R[op] → R[op]))
+                    _sum2: LabelerNDP(('_sum2',))
+                            SimpleWrap
+                              provides    _term01 (R[CHF])
+                              provides    _term11 (R[CHF])
+                              provides     _term2 (R[CHF])
+                              requires    _result (R[CHF])
+                             <class 'mcdp_dp.dp_sum.SumNDP'>
+                              | SumNDP(SumNMap(R[CHF]×R[CHF]×R[CHF] → R[CHF]))
+                    _sum3: LabelerNDP(('_sum3',))
+                            SimpleWrap
+                              provides    _term02 (R[CHF])
+                              provides    _term12 (R[CHF])
+                              requires cost_total (R[CHF])
+                             <class 'mcdp_dp.dp_sum.SumNDP'>
+                              | SumNDP(SumNMap(R[CHF]×R[CHF] → R[CHF]))
+                    _sum4: LabelerNDP(('_sum4',))
+                            SimpleWrap
+                              provides    _term03 (R[W])
+                              provides    _term13 (R[W])
+                              requires   _result2 (R[W])
+                             <class 'mcdp_dp.dp_sum.SumNDP'>
+                              | SumNDP(SumNMap(R[W]×R[W] → R[W]))
+                    _sum5: LabelerNDP(('_sum5',))
+                            SimpleWrap
+                              provides    _term04 (R[W])
+                              provides    _term14 (R[W])
+                              requires power_total (R[W])
+                             <class 'mcdp_dp.dp_sum.SumNDP'>
+                              | SumNDP(SumNMap(R[W]×R[W] → R[W]))
+                    _sum6: LabelerNDP(('_sum6',))
+                            SimpleWrap
+                              provides    _term05 (R[g])
+                              provides    _term15 (R[g])
+                              requires   _result3 (R[g])
+                             <class 'mcdp_dp.dp_sum.SumNDP'>
+                              | SumNDP(SumNMap(R[g]×R[g] → R[g]))
+                    _sum7: LabelerNDP(('_sum7',))
+                            SimpleWrap
+                              provides    _term06 (R[g])
+                              provides    _term16 (R[g])
+                              requires mass_total (R[g])
+                             <class 'mcdp_dp.dp_sum.SumNDP'>
+                              | SumNDP(SumNMap(R[g]×R[g] → R[g]))
+          computing_model: LabelerNDP(('computing_model',))
+                            SimpleWrap
+                             (loaded as 'computing')
+                              provides computation (R[op])
+                              requires       cost (R[CHF])
+                              requires       mass (R[g])
+                              requires      power (R[W])
+                             <class 'mcdp_dp.dp_catalogue.CatalogueDP'>
+                              | CatalogueDP(R[op]|PosetProduct(3: R[CHF],R[g],R[W]))
+         discomfort_model: CompositeNDP
+                            provides control_effort  [R[]]
+                            provides brake_discomfort  [R[]]
+                            requires discomfort  [R[]]
+                            4 nodes, 3 edges
+                            connections:
+                           - Constraint(_fun_control_effort.control_effort <= _sum1._term0)
+                           - Constraint(_fun_brake_discomfort.brake_discomfort <= _sum1._term1)
+                           - Constraint(_sum1._result <= _res_discomfort.discomfort)
+                            names:
+                           _fun_brake_discomfort: LabelerNDP(('discomfort_model', '_fun_brake_discomfort'))
+                                                   SimpleWrap
+                                                     provides brake_discomfort (R[ [truncated]
+    lane_simulation_model: CompositeNDP
+                            provides environment  [R[]]
+                            provides system_noise  [R[]]
+                            requires cost  [R[CHF]]
+                            requires power  [R[W]]
+                            requires mass  [R[g]]
+                            requires computation  [R[op]]
+                            requires tracking_error  [R[]]
+                            requires control_effort  [R[]]
+                            14 nodes, 16 edges
+                            connections:
+                           - Constraint(feature_model.implement_feature_at_delta <= implementation_feature_model.implement_feature_at_delta)
+                           - Constraint(lane_control_model.implement_lane_keeping_at_delta <= implementation_lane_model.implement_lane_keeping_at_delta [truncated]
+    long_simulation_model: CompositeNDP
+                            provides speed_cruise  [R[m/s]]
+                            provides environment  [R[]]
+                            requires v_max  [R[m/s]]
+                            requires acc_max  [R[m/s²]]
+                            requires acc_min  [R[m/s²]]
+                            requires cost  [R[CHF]]
+                            requires power  [R[W]]
+                            requires mass  [R[g]]
+                            requires computation  [R[op]]
+                            requires risk  [R[]]
+                            requires hazard  [R[kg*m/s]]
+                            requires discomfort_brake  [R[]]
+                            requires latency_braking  [R[s]]
+                            16 nodes, 18 edges
+                            connections:
+                           - Constraint(brake_control_model.false_positives <= long_sensing_model.false_positives)
+                           - Const [truncated]
+            vehicle_model: LabelerNDP(('vehicle_model',))
+                            SimpleWrap
+                             (loaded as 'vehicle')
+                              provides  speed_max (R[m/s])
+                              provides    acc_max (R[m/s²])
+                              provides    acc_min (R[m/s²])
+                              provides   capacity (R[person/car])
+                              provides driving_range (R[m])
+                              provides extra_mass (R[g])
+                              provides      power (R[W])
+                              requires cost_fix_veh (R[CHF])
+                              requires cost_op_veh (R[CHF/m])
+                              requires energy_externalities (R[g/m])
+                              requires system_noise (R[])
+                             <class 'mcdp_dp.dp_catalogue.CatalogueDP'>
+                              | CatalogueDP(PosetProduc [truncated]

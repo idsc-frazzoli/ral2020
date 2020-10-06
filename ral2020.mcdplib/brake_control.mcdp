@@ -1,0 +1,22 @@
+dp {
+   provides speed_cruise [m/s]
+   # Dynamical performances
+   requires speed_max [m/s]
+   requires acc_max [m/s^2]
+   requires acc_min [m/s^2]
+   # Sensing performance
+   requires false_positives [dimensionless]
+   requires false_negatives [dimensionless]
+   requires accuracy [dimensionless]
+   requires frequency [Hz]
+   # Computation
+   requires implement_brake_control [dimensionless]
+   # Autonomy performance
+   requires risk [dimensionless]
+   requires hazard [kg*m/s]
+   requires discomfort_brake [dimensionless]
+   requires latency_braking [s]
+   ## higher latency sensing?
+
+   implemented-by code mcdp_dp_tests.primitivedps.CatalogueDPTable(fileName="/Users/gioele/Desktop/Mobility/mcdp/src/mcdp_data/bundled.mcdp_repo/shelves/examples.mcdpshelf/ral2020.mcdplib/csv_catalogues/brake_control.csv",nF=1)
+}

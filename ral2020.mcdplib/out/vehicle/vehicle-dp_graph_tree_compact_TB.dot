@@ -1,0 +1,12 @@
+digraph G { 
+
+                graph [fontname = "STIX Two Math"];
+                 node [fontname = "STIX Two Math"];
+                 edge [fontname = "STIX Two Math"];
+                rankdir=TB;
+   node1 [shape="box",style="rounded",label=""];
+   
+   node2 [shape="none",label=""];
+   
+   node2->node1 [arrowhead="none"];
+   }

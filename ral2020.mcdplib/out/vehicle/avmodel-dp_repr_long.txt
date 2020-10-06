@@ -1,0 +1,180 @@
+DPLoop2:   R[m/s]×R[] ⇸ R[CHF]×R[CHF/mi]×R[kg*m/s]×R[g/mi]×R[]
+L Series: %  (R[m/s]×R[])×(R[s]×R[]) ⇸ (R[CHF]×R[CHF/mi]×R[kg*m/s]×R[g/mi]×R[])×(R[s]×R[])
+L \ Series: %  (R[m/s]×R[])×(R[s]×R[]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . \ Mux((R[m/s]×R[])×(R[s]×R[]) -> R[]×(R[m/s]×R[]×R[s]), [(0, 1), [(0, 0), (1, 1), (1, 0)]])    I = (R[m/s]×R[])×(R[s]×R[])
+L . \ Series: %  R[]×(R[m/s]×R[]×R[s]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . \ Parallel2  % R[]×(R[m/s]×R[]×R[s]) ⇸ (R[]×R[])×(R[m/s]×R[]×R[s])
+L . . . \ MeetNDualDP(MuxMap:R[]→R[]×R[],MeetNMap:R[]×R[]→R[])
+L . . . \ Id(R[m/s]×R[]×R[s])
+L . . \ Series: %  (R[]×R[])×(R[m/s]×R[]×R[s]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . \ Mux((R[]×R[])×(R[m/s]×R[]×R[s]) -> R[]×(R[m/s]×(R[]×R[s])×R[]), [(0, 1), [[(1, 0), [(1, 1), (1, 2)]], (0, 0)]])    I = (R[]×R[])×(R[m/s]×R[]×R[s])
+L . . . \ Series: %  R[]×(R[m/s]×(R[]×R[s])×R[]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . \ Parallel2  % R[]×(R[m/s]×(R[]×R[s])×R[]) ⇸ R[]×(((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[])×(R[CHF]×R[g]×R[W])
+L . . . . . \ Id(R[])
+L . . . . . \ Series: %  R[m/s]×(R[]×R[s])×R[] ⇸ (((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[])×(R[CHF]×R[g]×R[W])
+L . . . . . . \ Parallel2  % R[m/s]×(R[]×R[s])×R[] ⇸ ((((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×R[kg*m/s])×R[]
+L . . . . . . . \ Series: %  R[m/s]×(R[]×R[s]) ⇸ (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×R[kg*m/s]
+L . . . . . . . . \ Parallel2  % R[m/s]×(R[]×R[s]) ⇸ (R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[op])×(R[]×R[s])
+L . . . . . . . . . \ Series: %  R[m/s] ⇸ R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[op]
+L . . . . . . . . . . \ CatalogueDP(R[m/s]|PosetProduct(12: R[m/s],R[m/s²],R[m/s²],R[],R[],R[],R[Hz],R[],R[],R[kg*m/s],R[],R[s]))
+L . . . . . . . . . . \ Series: %  R[m/s]×R[m/s²]×R[m/s²]×R[]×R[]×R[]×R[Hz]×R[]×R[]×R[kg*m/s]×R[]×R[s] ⇸ R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[op]
+L . . . . . . . . . . . \ Mux(R[m/s]×R[m/s²]×R[m/s²]×R[]×R[]×R[]×R[Hz]×R[]×R[]×R[kg*m/s]×R[]×R[s] -> R[]×R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[s], [[7, 10, [[4, 3, 5, 6]], [[0, 2, 1]], [[9, 8]]], 11])    I = R[m/s]×R[m/s²]×R[m/s²]×R[]×R[]×R[]×R[Hz]×R[]×R[]×R[kg*m/s]×R[]×R[s]
+L . . . . . . . . . . . \ Series: %  R[]×R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[s] ⇸ R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[op]
+L . . . . . . . . . . . . \ Parallel2  % R[]×R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[s] ⇸ R[]×R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×(𝟙)
+L . . . . . . . . . . . . . \ Id(R[]×R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×))
+L . . . . . . . . . . . . . \ LimitMaximals(R[s], 1 els)
+L . . . . . . . . . . . . \ Series: %  R[]×R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×(𝟙) ⇸ R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[op]
+L . . . . . . . . . . . . . \ Mux(R[]×R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×(𝟙) -> R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[], [[(0, 1), (0, 2), (0, 3), (0, 4)], (0, 0)])    I = R[]×R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×(𝟙)
+L . . . . . . . . . . . . . \ Parallel2  % R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[] ⇸ R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[op]
+L . . . . . . . . . . . . . . \ Id(R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×))
+L . . . . . . . . . . . . . . \ CatalogueDP(R[]|R[op])
+L . . . . . . . . . \ Id(R[]×R[s])
+L . . . . . . . . \ Series: %  (R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[op])×(R[]×R[s]) ⇸ (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×R[kg*m/s]
+L . . . . . . . . . \ Mux((R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[op])×(R[]×R[s]) -> R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[]×R[s])×R[op]), [[(0, 0, 0), [[(0, 0, 1, 0, 0), (0, 0, 1, 0, 1), (0, 0, 1, 0, 2), (0, 0, 1, 0, 3)]], [[(0, 0, 2, 0, 0), (0, 0, 2, 0, 1), (0, 0, 2, 0, 2)]], [[(0, 0, 3, 0, 0), (0, 0, 3, 0, 1)]]], [[(1, 0), (1, 1)], (0, 1)]])    I = (R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×R[op])×(R[]×R[s])
+L . . . . . . . . . \ Series: %  R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[]×R[s])×R[op]) ⇸ (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×R[kg*m/s]
+L . . . . . . . . . . \ Parallel2  % R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[]×R[s])×R[op]) ⇸ R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[]×((R[Hz]×R[pixel/sr])×)×R[s])×R[op])
+L . . . . . . . . . . . \ Id(R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×))
+L . . . . . . . . . . . \ Series: %  (R[]×R[s])×R[op] ⇸ (R[]×((R[Hz]×R[pixel/sr])×)×R[s])×R[op]
+L . . . . . . . . . . . . \ Parallel2  % (R[]×R[s])×R[op] ⇸ (R[]×R[op])×(R[s]×R[pixel/sr]×R[Hz])×R[op]
+L . . . . . . . . . . . . . \ Series: %  R[]×R[s] ⇸ (R[]×R[op])×(R[s]×R[pixel/sr]×R[Hz])
+L . . . . . . . . . . . . . . \ Parallel2  % R[]×R[s] ⇸ ((R[]×R[]×R[op])×ℕ)×R[s]
+L . . . . . . . . . . . . . . . \ Series: %  R[] ⇸ (R[]×R[]×R[op])×ℕ
+L . . . . . . . . . . . . . . . . \ CatalogueDP(R[]|PosetProduct(4: R[],R[],R[s],R[]))
+L . . . . . . . . . . . . . . . . \ Series: %  R[]×R[]×R[s]×R[] ⇸ (R[]×R[]×R[op])×ℕ
+L . . . . . . . . . . . . . . . . . \ Mux(R[]×R[]×R[s]×R[] -> (R[]×R[]×R[])×R[s], [[0, 1, 3], 2])    I = R[]×R[]×R[s]×R[]
+L . . . . . . . . . . . . . . . . . \ Series: %  (R[]×R[]×R[])×R[s] ⇸ (R[]×R[]×R[op])×ℕ
+L . . . . . . . . . . . . . . . . . . \ Parallel2  % (R[]×R[]×R[])×R[s] ⇸ (R[]×R[]×R[])×R[op]
+L . . . . . . . . . . . . . . . . . . . \ Id(R[]×R[]×R[])
+L . . . . . . . . . . . . . . . . . . . \ CatalogueDP(R[s]|R[op])
+L . . . . . . . . . . . . . . . . . . \ Series: %  (R[]×R[]×R[])×R[op] ⇸ (R[]×R[]×R[op])×ℕ
+L . . . . . . . . . . . . . . . . . . . \ Mux((R[]×R[]×R[])×R[op] -> (R[]×R[]×R[op])×R[], [[(0, 1), (0, 2), 1], (0, 0)])    I = (R[]×R[]×R[])×R[op]
+L . . . . . . . . . . . . . . . . . . . \ Parallel2  % (R[]×R[]×R[op])×R[] ⇸ (R[]×R[]×R[op])×ℕ
+L . . . . . . . . . . . . . . . . . . . . \ Id(R[]×R[]×R[op])
+L . . . . . . . . . . . . . . . . . . . . \ Conversion(CeilRNMap:R[]→ℕ,PromoteToFloat:ℕ→R[])
+L . . . . . . . . . . . . . . . \ Id(R[s])
+L . . . . . . . . . . . . . . \ Series: %  ((R[]×R[]×R[op])×ℕ)×R[s] ⇸ (R[]×R[op])×(R[s]×R[pixel/sr]×R[Hz])
+L . . . . . . . . . . . . . . . \ Mux(((R[]×R[]×R[op])×ℕ)×R[s] -> (R[]×R[]×ℕ)×(R[s]×R[op]), [[(0, 0, 0), (0, 0, 1), (0, 1)], [1, (0, 0, 2)]])    I = ((R[]×R[]×R[op])×ℕ)×R[s]
+L . . . . . . . . . . . . . . . \ Series: %  (R[]×R[]×ℕ)×(R[s]×R[op]) ⇸ (R[]×R[op])×(R[s]×R[pixel/sr]×R[Hz])
+L . . . . . . . . . . . . . . . . \ Parallel2  % (R[]×R[]×ℕ)×(R[s]×R[op]) ⇸ (R[]×R[]×ℕ)×(R[Hz]×R[op])
+L . . . . . . . . . . . . . . . . . \ Id(R[]×R[]×ℕ)
+L . . . . . . . . . . . . . . . . . \ Series: %  R[s]×R[op] ⇸ R[Hz]×R[op]
+L . . . . . . . . . . . . . . . . . . \ Parallel2  % R[s]×R[op] ⇸ (R[Hz]×R[op])×R[op]
+L . . . . . . . . . . . . . . . . . . . \ CatalogueDP(R[s]|PosetProduct(2: R[Hz],R[op]))
+L . . . . . . . . . . . . . . . . . . . \ Id(R[op])
+L . . . . . . . . . . . . . . . . . . \ Series: %  (R[Hz]×R[op])×R[op] ⇸ R[Hz]×R[op]
+L . . . . . . . . . . . . . . . . . . . \ Mux((R[Hz]×R[op])×R[op] -> R[Hz]×(R[op]×R[op]), [(0, 0), [1, (0, 1)]])    I = (R[Hz]×R[op])×R[op]
+L . . . . . . . . . . . . . . . . . . . \ Parallel2  % R[Hz]×(R[op]×R[op]) ⇸ R[Hz]×R[op]
+L . . . . . . . . . . . . . . . . . . . . \ Id(R[Hz])
+L . . . . . . . . . . . . . . . . . . . . \ SumNDP(SumNMap(R[op]×R[op] → R[op]))
+L . . . . . . . . . . . . . . . . \ Series: %  (R[]×R[]×ℕ)×(R[Hz]×R[op]) ⇸ (R[]×R[op])×(R[s]×R[pixel/sr]×R[Hz])
+L . . . . . . . . . . . . . . . . . \ Mux((R[]×R[]×ℕ)×(R[Hz]×R[op]) -> (R[]×R[]×R[Hz]×R[op])×ℕ, [[(0, 0), (0, 1), (1, 0), (1, 1)], (0, 2)])    I = (R[]×R[]×ℕ)×(R[Hz]×R[op])
+L . . . . . . . . . . . . . . . . . \ Series: %  (R[]×R[]×R[Hz]×R[op])×ℕ ⇸ (R[]×R[op])×(R[s]×R[pixel/sr]×R[Hz])
+L . . . . . . . . . . . . . . . . . . \ Parallel2  % (R[]×R[]×R[Hz]×R[op])×ℕ ⇸ (R[]×R[]×R[Hz]×R[op])×(𝟙)
+L . . . . . . . . . . . . . . . . . . . \ Id(R[]×R[]×R[Hz]×R[op])
+L . . . . . . . . . . . . . . . . . . . \ Limit(ℕ, 10)
+L . . . . . . . . . . . . . . . . . . \ Series: %  (R[]×R[]×R[Hz]×R[op])×(𝟙) ⇸ (R[]×R[op])×(R[s]×R[pixel/sr]×R[Hz])
+L . . . . . . . . . . . . . . . . . . . \ Mux((R[]×R[]×R[Hz]×R[op])×(𝟙) -> (R[]×R[op])×(R[Hz]×R[]), [[(0, 1), (0, 3)], [(0, 2), (0, 0)]])    I = (R[]×R[]×R[Hz]×R[op])×(𝟙)
+L . . . . . . . . . . . . . . . . . . . \ Parallel2  % (R[]×R[op])×(R[Hz]×R[]) ⇸ (R[]×R[op])×(R[s]×R[pixel/sr]×R[Hz])
+L . . . . . . . . . . . . . . . . . . . . \ Id(R[]×R[op])
+L . . . . . . . . . . . . . . . . . . . . \ CatalogueDP(PosetProduct(2: R[Hz],R[])|PosetProduct(3: R[s],R[pixel/sr],R[Hz]))
+L . . . . . . . . . . . . . \ Id(R[op])
+L . . . . . . . . . . . . \ Series: %  (R[]×R[op])×(R[s]×R[pixel/sr]×R[Hz])×R[op] ⇸ (R[]×((R[Hz]×R[pixel/sr])×)×R[s])×R[op]
+L . . . . . . . . . . . . . \ Mux((R[]×R[op])×(R[s]×R[pixel/sr]×R[Hz])×R[op] -> (R[]×((R[Hz]×R[pixel/sr])×)×R[s])×(R[op]×R[op]), [[(0, 0, 0), [[(0, 1, 2), (0, 1, 1)]], (0, 1, 0)], [1, (0, 0, 1)]])    I = (R[]×R[op])×(R[s]×R[pixel/sr]×R[Hz])×R[op]
+L . . . . . . . . . . . . . \ Parallel2  % (R[]×((R[Hz]×R[pixel/sr])×)×R[s])×(R[op]×R[op]) ⇸ (R[]×((R[Hz]×R[pixel/sr])×)×R[s])×R[op]
+L . . . . . . . . . . . . . . \ Id(R[]×((R[Hz]×R[pixel/sr])×)×R[s])
+L . . . . . . . . . . . . . . \ SumNDP(SumNMap(R[op]×R[op] → R[op]))
+L . . . . . . . . . . \ Series: %  R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[]×((R[Hz]×R[pixel/sr])×)×R[s])×R[op]) ⇸ (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×R[kg*m/s]
+L . . . . . . . . . . . \ Mux(R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[]×((R[Hz]×R[pixel/sr])×)×R[s])×R[op]) -> (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[op])×(R[]×R[]), [[[[(0, 1, 0, 0), (0, 1, 0, 1), (0, 1, 0, 2), (0, 1, 0, 3)]], [[(0, 2, 0, 0), (0, 2, 0, 1), (0, 2, 0, 2)]], [[(0, 3, 0, 0), (0, 3, 0, 1)]], [[(1, 0, 1, 0, 0), (1, 0, 1, 0, 1)]], (1, 0, 2), (1, 1)], [(1, 0, 0), (0, 0)]])    I = R[]×((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[]×((R[Hz]×R[pixel/sr])×)×R[s])×R[op])
+L . . . . . . . . . . . \ Series: %  (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[op])×(R[]×R[]) ⇸ (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×R[kg*m/s]
+L . . . . . . . . . . . . \ Parallel2  % (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[op])×(R[]×R[]) ⇸ (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[op])×R[]
+L . . . . . . . . . . . . . \ Id(((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[op])
+L . . . . . . . . . . . . . \ SumNDP(SumNMap(R[]×R[] → R[]))
+L . . . . . . . . . . . . \ Series: %  (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[op])×R[] ⇸ (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×R[kg*m/s]
+L . . . . . . . . . . . . . \ Mux((((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[op])×R[] -> (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[])×R[op], [[[[(0, 0, 0, 0), (0, 0, 0, 1), (0, 0, 0, 2), (0, 0, 0, 3)]], [[(0, 1, 0, 0), (0, 1, 0, 1), (0, 1, 0, 2)]], [[(0, 2, 0, 0), (0, 2, 0, 1)]], [[(0, 3, 0, 0), (0, 3, 0, 1)]], (0, 4), 1], (0, 5)])    I = (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[op])×R[]
+L . . . . . . . . . . . . . \ Series: %  (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[])×R[op] ⇸ (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×R[kg*m/s]
+L . . . . . . . . . . . . . . \ Parallel2  % (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[])×R[op] ⇸ (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[])×(R[CHF]×R[g]×R[W])
+L . . . . . . . . . . . . . . . \ Id(((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[])
+L . . . . . . . . . . . . . . . \ CatalogueDP(R[op]|PosetProduct(3: R[CHF],R[g],R[W]))
+L . . . . . . . . . . . . . . \ Series: %  (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[])×(R[CHF]×R[g]×R[W]) ⇸ (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×R[kg*m/s]
+L . . . . . . . . . . . . . . . \ Mux((((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[])×(R[CHF]×R[g]×R[W]) -> (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×(R[]×R[kg*m/s]), [[[[(0, 0, 0, 0), (0, 0, 0, 1), (0, 0, 0, 2), (0, 0, 0, 3)]], [[(0, 1, 0, 0), (0, 1, 0, 1), (0, 1, 0, 2)]], [[(0, 3, 0, 0), (0, 3, 0, 1)]], (0, 4), (0, 5), (1, 0), (1, 1), (1, 2)], [(0, 2, 0, 1), (0, 2, 0, 0)]])    I = (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[kg*m/s]×R[])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[])×(R[CHF]×R[g]×R[W])
+L . . . . . . . . . . . . . . . \ Parallel2  % (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×(R[]×R[kg*m/s]) ⇸ (((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×R[kg*m/s]
+L . . . . . . . . . . . . . . . . \ Id(((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])
+L . . . . . . . . . . . . . . . . \ ProductNDP(ProductNMap:R[]×R[kg*m/s]→R[kg*m/s])
+L . . . . . . . \ Id(R[])
+L . . . . . . \ Series: %  ((((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×R[kg*m/s])×R[] ⇸ (((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[])×(R[CHF]×R[g]×R[W])
+L . . . . . . . \ Mux(((((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×R[kg*m/s])×R[] -> (((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[])×(R[]×R[]×R[]×R[Hz]×R[]), [[[[(0, 0, 1, 0, 0), (0, 0, 1, 0, 1), (0, 0, 1, 0, 2)]], [[(0, 0, 2, 0, 0), (0, 0, 2, 0, 1)]], (0, 0, 3), (0, 0, 5), (0, 0, 6), (0, 0, 7), (0, 1), (0, 0, 4)], [(0, 0, 0, 0, 1), (0, 0, 0, 0, 0), (0, 0, 0, 0, 2), (0, 0, 0, 0, 3), 1]])    I = ((((R[]×R[]×R[]×R[Hz])×)×((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[]×R[CHF]×R[g]×R[W])×R[kg*m/s])×R[]
+L . . . . . . . \ Parallel2  % (((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[])×(R[]×R[]×R[]×R[Hz]×R[]) ⇸ (((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[])×(R[CHF]×R[g]×R[W])
+L . . . . . . . . \ Id(((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[])
+L . . . . . . . . \ CatalogueDP(PosetProduct(5: R[],R[],R[],R[Hz],R[])|PosetProduct(3: R[CHF],R[g],R[W]))
+L . . . . \ Series: %  R[]×(((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[])×(R[CHF]×R[g]×R[W]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . \ Mux(R[]×(((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[])×(R[CHF]×R[g]×R[W]) -> (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W])×(R[pixel/sr]×R[Hz]×R[]), [[[[(1, 0, 0, 0, 0), (1, 0, 0, 0, 1), (1, 0, 0, 0, 2)]], (1, 0, 2), (1, 0, 3), (1, 0, 4), (1, 0, 5), (1, 0, 6), (1, 0, 7), (1, 1, 0), (1, 1, 1), (1, 1, 2)], [(1, 0, 1, 0, 1), (1, 0, 1, 0, 0), 0]])    I = R[]×(((R[m/s]×R[m/s²]×R[m/s²])×)×((R[Hz]×R[pixel/sr])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[])×(R[CHF]×R[g]×R[W])
+L . . . . . \ Series: %  (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W])×(R[pixel/sr]×R[Hz]×R[]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . \ Parallel2  % (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W])×(R[pixel/sr]×R[Hz]×R[]) ⇸ (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W])×(R[CHF]×R[g]×R[W])
+L . . . . . . . \ Id(((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W])
+L . . . . . . . \ CatalogueDP(PosetProduct(3: R[pixel/sr],R[Hz],R[])|PosetProduct(3: R[CHF],R[g],R[W]))
+L . . . . . . \ Series: %  (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W])×(R[CHF]×R[g]×R[W]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . \ Mux((((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W])×(R[CHF]×R[g]×R[W]) -> (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[g])×(R[W]×R[W]), [[[[(0, 0, 0, 0), (0, 0, 0, 1), (0, 0, 0, 2)]], (0, 1), (0, 2), (0, 3), (0, 5), (0, 6), (0, 7), (0, 8), (0, 9), (1, 0), (1, 1)], [(1, 2), (0, 4)]])    I = (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[W]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W])×(R[CHF]×R[g]×R[W])
+L . . . . . . . \ Series: %  (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[g])×(R[W]×R[W]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . \ Parallel2  % (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[g])×(R[W]×R[W]) ⇸ (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[g])×R[W]
+L . . . . . . . . . \ Id(((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[g])
+L . . . . . . . . . \ SumNDP(SumNMap(R[W]×R[W] → R[W]))
+L . . . . . . . . \ Series: %  (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[g])×R[W] ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . \ Mux((((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[g])×R[W] -> (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[W])×(R[g]×R[g]), [[[[(0, 0, 0, 0), (0, 0, 0, 1), (0, 0, 0, 2)]], (0, 1), (0, 2), (0, 4), (0, 5), (0, 6), (0, 7), (0, 8), (0, 9), 1], [(0, 10), (0, 3)]])    I = (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[g]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[g])×R[W]
+L . . . . . . . . . \ Series: %  (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[W])×(R[g]×R[g]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . \ Parallel2  % (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[W])×(R[g]×R[g]) ⇸ (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[W])×R[g]
+L . . . . . . . . . . . \ Id(((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[W])
+L . . . . . . . . . . . \ SumNDP(SumNMap(R[g]×R[g] → R[g]))
+L . . . . . . . . . . \ Series: %  (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[W])×R[g] ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . \ Mux((((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[W])×R[g] -> (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[W]×R[CHF]×R[W])×(R[g]×R[g]), [[[[(0, 0, 0, 0), (0, 0, 0, 1), (0, 0, 0, 2)]], (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 7), (0, 8), (0, 9)], [(0, 6), 1]])    I = (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[g]×R[W]×R[CHF]×R[W])×R[g]
+L . . . . . . . . . . . \ Series: %  (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[W]×R[CHF]×R[W])×(R[g]×R[g]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . . \ Parallel2  % (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[W]×R[CHF]×R[W])×(R[g]×R[g]) ⇸ (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[W]×R[CHF]×R[W])×R[g]
+L . . . . . . . . . . . . . \ Id(((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[W]×R[CHF]×R[W])
+L . . . . . . . . . . . . . \ SumNDP(SumNMap(R[g]×R[g] → R[g]))
+L . . . . . . . . . . . . \ Series: %  (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[W]×R[CHF]×R[W])×R[g] ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . . . \ Mux((((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[W]×R[CHF]×R[W])×R[g] -> (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[g])×(R[W]×R[W]), [[[[(0, 0, 0, 0), (0, 0, 0, 1), (0, 0, 0, 2)]], (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 7), 1], [(0, 6), (0, 8)]])    I = (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[W]×R[CHF]×R[W])×R[g]
+L . . . . . . . . . . . . . \ Series: %  (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[g])×(R[W]×R[W]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . . . . \ Parallel2  % (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[g])×(R[W]×R[W]) ⇸ (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[g])×R[W]
+L . . . . . . . . . . . . . . . \ Id(((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[g])
+L . . . . . . . . . . . . . . . \ SumNDP(SumNMap(R[W]×R[W] → R[W]))
+L . . . . . . . . . . . . . . \ Series: %  (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[g])×R[W] ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . . . . . \ Mux((((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[g])×R[W] -> (R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF])×(𝟙)×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[g]×R[W]), [[(0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6)], [[], [[[(0, 0, 0, 0), (0, 0, 0, 1), (0, 0, 0, 2)]], (0, 7), 1]]])    I = (((R[m/s]×R[m/s²]×R[m/s²])×)×R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[g])×R[W]
+L . . . . . . . . . . . . . . . \ Series: %  (R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF])×(𝟙)×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[g]×R[W]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . . . . . . \ Parallel2  % (R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF])×(𝟙)×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[g]×R[W]) ⇸ (R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF])×(R[CHF]×R[CHF/m]×R[g/m]×R[])
+L . . . . . . . . . . . . . . . . . \ Id(R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF])
+L . . . . . . . . . . . . . . . . . \ Series: %  (𝟙)×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[g]×R[W]) ⇸ R[CHF]×R[CHF/m]×R[g/m]×R[]
+L . . . . . . . . . . . . . . . . . . \ Parallel2  % (𝟙)×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[g]×R[W]) ⇸ R[m]×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[g]×R[W])
+L . . . . . . . . . . . . . . . . . . . \ ConstantMins(R[m]:1)
+L . . . . . . . . . . . . . . . . . . . \ Id(((R[m/s]×R[m/s²]×R[m/s²])×)×R[g]×R[W])
+L . . . . . . . . . . . . . . . . . . \ Series: %  R[m]×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[g]×R[W]) ⇸ R[CHF]×R[CHF/m]×R[g/m]×R[]
+L . . . . . . . . . . . . . . . . . . . \ Mux(R[m]×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[g]×R[W]) -> (𝟙)×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[m]×R[g]×R[W]), [[], [[[(1, 0, 0, 0), (1, 0, 0, 1), (1, 0, 0, 2)]], 0, (1, 1), (1, 2)]])    I = R[m]×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[g]×R[W])
+L . . . . . . . . . . . . . . . . . . . \ Series: %  (𝟙)×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[m]×R[g]×R[W]) ⇸ R[CHF]×R[CHF/m]×R[g/m]×R[]
+L . . . . . . . . . . . . . . . . . . . . \ Parallel2  % (𝟙)×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[m]×R[g]×R[W]) ⇸ (R[person/car]×)×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[m]×R[g]×R[W])
+L . . . . . . . . . . . . . . . . . . . . . \ Constant((R[person/car]×):(1.0,))
+L . . . . . . . . . . . . . . . . . . . . . \ Id(((R[m/s]×R[m/s²]×R[m/s²])×)×R[m]×R[g]×R[W])
+L . . . . . . . . . . . . . . . . . . . . \ Series: %  (R[person/car]×)×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[m]×R[g]×R[W]) ⇸ R[CHF]×R[CHF/m]×R[g/m]×R[]
+L . . . . . . . . . . . . . . . . . . . . . \ Mux((R[person/car]×)×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[m]×R[g]×R[W]) -> R[m/s]×R[m/s²]×R[m/s²]×R[person/car]×R[m]×R[g]×R[W], [(1, 0, 0, 0), (1, 0, 0, 2), (1, 0, 0, 1), (0, 0), (1, 1), (1, 2), (1, 3)])    I = (R[person/car]×)×(((R[m/s]×R[m/s²]×R[m/s²])×)×R[m]×R[g]×R[W])
+L . . . . . . . . . . . . . . . . . . . . . \ CatalogueDP(PosetProduct(7: R[m/s],R[m/s²],R[m/s²],R[person/car],R[m],R[g],R[W])|PosetProduct(4: R[CHF],R[CHF/m],R[g/m],R[]))
+L . . . . . . . . . . . . . . . . \ Series: %  (R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF])×(R[CHF]×R[CHF/m]×R[g/m]×R[]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . . . . . . . \ Mux((R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF])×(R[CHF]×R[CHF/m]×R[g/m]×R[]) -> (R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[CHF]×R[CHF/m]×R[])×R[g/m], [[(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 1), (1, 3)], (1, 2)])    I = (R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF])×(R[CHF]×R[CHF/m]×R[g/m]×R[])
+L . . . . . . . . . . . . . . . . . \ Series: %  (R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[CHF]×R[CHF/m]×R[])×R[g/m] ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . . . . . . . . \ Parallel2  % (R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[CHF]×R[CHF/m]×R[])×R[g/m] ⇸ (R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[CHF]×R[CHF/m]×R[])×R[g/mi]
+L . . . . . . . . . . . . . . . . . . . \ Id(R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[CHF]×R[CHF/m]×R[])
+L . . . . . . . . . . . . . . . . . . . \ Conversion(LinearMapComp:R[g/m]→R[g/mi],LinearMapComp:R[g/mi]→R[g/m])
+L . . . . . . . . . . . . . . . . . . \ Series: %  (R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[CHF]×R[CHF/m]×R[])×R[g/mi] ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . . . . . . . . . \ Mux((R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[CHF]×R[CHF/m]×R[])×R[g/mi] -> (R[s]×R[kg*m/s]×R[]×R[CHF]×R[CHF/m]×R[]×R[g/mi])×(R[CHF]×R[CHF]×R[CHF]), [[(0, 0), (0, 2), (0, 3), (0, 4), (0, 7), (0, 8), 1], [(0, 5), (0, 6), (0, 1)]])    I = (R[s]×R[CHF]×R[kg*m/s]×R[]×R[CHF]×R[CHF]×R[CHF]×R[CHF/m]×R[])×R[g/mi]
+L . . . . . . . . . . . . . . . . . . . \ Series: %  (R[s]×R[kg*m/s]×R[]×R[CHF]×R[CHF/m]×R[]×R[g/mi])×(R[CHF]×R[CHF]×R[CHF]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . . . . . . . . . . \ Parallel2  % (R[s]×R[kg*m/s]×R[]×R[CHF]×R[CHF/m]×R[]×R[g/mi])×(R[CHF]×R[CHF]×R[CHF]) ⇸ (R[s]×R[kg*m/s]×R[]×R[CHF]×R[CHF/m]×R[]×R[g/mi])×R[CHF]
+L . . . . . . . . . . . . . . . . . . . . . \ Id(R[s]×R[kg*m/s]×R[]×R[CHF]×R[CHF/m]×R[]×R[g/mi])
+L . . . . . . . . . . . . . . . . . . . . . \ SumNDP(SumNMap(R[CHF]×R[CHF]×R[CHF] → R[CHF]))
+L . . . . . . . . . . . . . . . . . . . . \ Series: %  (R[s]×R[kg*m/s]×R[]×R[CHF]×R[CHF/m]×R[]×R[g/mi])×R[CHF] ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . . . . . . . . . . . \ Mux((R[s]×R[kg*m/s]×R[]×R[CHF]×R[CHF/m]×R[]×R[g/mi])×R[CHF] -> (R[s]×R[kg*m/s]×R[]×R[CHF]×R[]×R[g/mi]×R[CHF])×R[CHF/m], [[(0, 0), (0, 1), (0, 2), (0, 3), (0, 5), (0, 6), 1], (0, 4)])    I = (R[s]×R[kg*m/s]×R[]×R[CHF]×R[CHF/m]×R[]×R[g/mi])×R[CHF]
+L . . . . . . . . . . . . . . . . . . . . . \ Series: %  (R[s]×R[kg*m/s]×R[]×R[CHF]×R[]×R[g/mi]×R[CHF])×R[CHF/m] ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . . . . . . . . . . . . \ Parallel2  % (R[s]×R[kg*m/s]×R[]×R[CHF]×R[]×R[g/mi]×R[CHF])×R[CHF/m] ⇸ (R[s]×R[kg*m/s]×R[]×R[CHF]×R[]×R[g/mi]×R[CHF])×R[CHF/mi]
+L . . . . . . . . . . . . . . . . . . . . . . . \ Id(R[s]×R[kg*m/s]×R[]×R[CHF]×R[]×R[g/mi]×R[CHF])
+L . . . . . . . . . . . . . . . . . . . . . . . \ Conversion(LinearMapComp:R[CHF/m]→R[CHF/mi],LinearMapComp:R[CHF/mi]→R[CHF/m])
+L . . . . . . . . . . . . . . . . . . . . . . \ Series: %  (R[s]×R[kg*m/s]×R[]×R[CHF]×R[]×R[g/mi]×R[CHF])×R[CHF/mi] ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . . . . . . . . . . . . . \ Mux((R[s]×R[kg*m/s]×R[]×R[CHF]×R[]×R[g/mi]×R[CHF])×R[CHF/mi] -> (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×(R[CHF]×R[CHF]), [[(0, 0), (0, 1), (0, 2), (0, 4), (0, 5), 1], [(0, 3), (0, 6)]])    I = (R[s]×R[kg*m/s]×R[]×R[CHF]×R[]×R[g/mi]×R[CHF])×R[CHF/mi]
+L . . . . . . . . . . . . . . . . . . . . . . . \ Parallel2  % (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×(R[CHF]×R[CHF]) ⇸ (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]
+L . . . . . . . . . . . . . . . . . . . . . . . . \ Id(R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])
+L . . . . . . . . . . . . . . . . . . . . . . . . \ SumNDP(SumNMap(R[CHF]×R[CHF] → R[CHF]))
+L \ Mux((R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF] -> (R[CHF]×R[CHF/mi]×R[kg*m/s]×R[g/mi]×R[])×(R[s]×R[]), [[1, (0, 5), (0, 1), (0, 4), (0, 2)], [(0, 0), (0, 3)]])    I = (R[s]×R[kg*m/s]×R[]×R[]×R[g/mi]×R[CHF/mi])×R[CHF]

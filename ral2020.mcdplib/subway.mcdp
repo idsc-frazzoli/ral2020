@@ -1,0 +1,10 @@
+dp {
+    # How much does it cost to have more subways
+    requires fixed_cost [$]
+    # Operational cost of the subway
+    requires operational_cost_sub [$/year]
+    # No functionality
+    provides number_subway [Nat]
+
+    implemented-by code mcdp_dp_tests.primitivedps.CatalogueDPTable(fileName="/Users/gioele/Desktop/Mobility/mcdp/src/mcdp_data/bundled.mcdp_repo/shelves/examples.mcdpshelf/ral2020.mcdplib/csv_catalogues/subway.csv",nF=1)
+}

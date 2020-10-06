@@ -1,0 +1,26 @@
+dp {
+	# The demand is a fixed parameter/s for our cases of NYC and Berlin, we consider it here varying
+	provides total_requests [dimensionless]
+	# Bought vehicles
+	requires number_veh_available [Nat]
+	# Bought e-scooters
+	requires number_mm_available [Nat]
+	# Achievable velocity AVs
+	requires velocity_av [miles/hour]
+	# Achievable velocity e-scooter
+	requires velocity_mm [miles/hour]
+	# Average travel time (metric of I-AMoD)
+	requires time_travel [s]
+	# Total Distance driven by AVs in one second
+	requires d_road_av [meter/s]
+	# Total Distance driven by E-scooters in one second
+	requires d_road_mm [meter/s]
+	# Total distance on public transport in one second
+	# requires d_subway [meter/s]
+	# Number of Subways
+	requires number_subway [Nat]
+	# CO2 from vehicles in one second
+	requires CO2_road_av [kg/s]
+
+    implemented-by code mcdp_dp_tests.primitivedps.CatalogueDPTable(fileName="/Users/gioele/Desktop/Mobility/mcdp/src/mcdp_data/bundled.mcdp_repo/shelves/examples.mcdpshelf/camod.mcdplib/csv_catalogues/amod_micromobility.csv",nF=1)
+}

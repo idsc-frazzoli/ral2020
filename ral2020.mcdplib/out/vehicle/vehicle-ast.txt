@@ -1,0 +1,152 @@
+DPWrap  Where('dp {\n   provides speed_max [m/s]\n   provides acc_max [m/s^2]\n   provides acc_min [m/s^2]\n   provides capacity [persons/car]\n   provides driving_range [m]\n   provides extra_mass [g]\n   provides power [W]\n   requires cost_fix_veh [CHF]\n   requires cost_op_veh [CHF/m]\n   requires energy_externalities [g/m]\n   requires system_noise [dimensionless]\n   #\xa0Actuation is actually part of the vehicle\n   implemented-by code mcdp_dp_tests.primitivedps.CatalogueDPTable(fileName="/Users/gioele/Desktop/Mobility/mcdp/src/mcdp_data/bundled.mcdp_repo/shelves/examples.mcdpshelf/ral2020.mcdplib/csv_catalogues/vehicle.csv",nF=7)\n}')
+ token: DPWrapToken  Where('dp')
+         keyword: 'dp'
+ statements: List11  Where('provides speed_max [m/s]\n   provides acc_max [m/s^2]\n   provides acc_min [m/s^2]\n   provides capacity [persons/car]\n   provides driving_range [m]\n   provides extra_mass [g]\n   provides power [W]\n   requires cost_fix_veh [CHF]\n   requires cost_op_veh [CHF/m]\n   requires energy_externalities [g/m]\n   requires system_noise [dimensionless]')
+              e0: FunStatement  Where('provides speed_max [m/s]')
+                   comment: None
+                   keyword: ProvideKeyword  Where('provides')
+                             keyword: 'provides'
+                   fname: FName  Where('speed_max')
+                           value: 'speed_max'
+                   lbracket: LBRACKET  Where('[')
+                              glyph: '['
+                   unit: RcompUnit  Where('m/s')
+                          pint_string: 'm / s'
+                   rbracket: RBRACKET  Where(']')
+                              glyph: ']'
+              e1: FunStatement  Where('provides acc_max [m/s^2]')
+                   comment: None
+                   keyword: ProvideKeyword  Where('provides')
+                             keyword: 'provides'
+                   fname: FName  Where('acc_max')
+                           value: 'acc_max'
+                   lbracket: LBRACKET  Where('[')
+                              glyph: '['
+                   unit: RcompUnit  Where('m/s^2')
+                          pint_string: 'm / s ^ 2'
+                   rbracket: RBRACKET  Where(']')
+                              glyph: ']'
+              e2: FunStatement  Where('provides acc_min [m/s^2]')
+                   comment: None
+                   keyword: ProvideKeyword  Where('provides')
+                             keyword: 'provides'
+                   fname: FName  Where('acc_min')
+                           value: 'acc_min'
+                   lbracket: LBRACKET  Where('[')
+                              glyph: '['
+                   unit: RcompUnit  Where('m/s^2')
+                          pint_string: 'm / s ^ 2'
+                   rbracket: RBRACKET  Where(']')
+                              glyph: ']'
+              e3: FunStatement  Where('provides capacity [persons/car]')
+                   comment: None
+                   keyword: ProvideKeyword  Where('provides')
+                             keyword: 'provides'
+                   fname: FName  Where('capacity')
+                           value: 'capacity'
+                   lbracket: LBRACKET  Where('[')
+                              glyph: '['
+                   unit: RcompUnit  Where('persons/car')
+                          pint_string: 'persons / car'
+                   rbracket: RBRACKET  Where(']')
+                              glyph: ']'
+              e4: FunStatement  Where('provides driving_range [m]')
+                   comment: None
+                   keyword: ProvideKeyword  Where('provides')
+                             keyword: 'provides'
+                   fname: FName  Where('driving_range')
+                           value: 'driving_range'
+                   lbracket: LBRACKET  Where('[')
+                              glyph: '['
+                   unit: RcompUnit  Where('m')
+                          pint_string: 'm'
+                   rbracket: RBRACKET  Where(']')
+                              glyph: ']'
+              e5: FunStatement  Where('provides extra_mass [g]')
+                   comment: None
+                   keyword: ProvideKeyword  Where('provides')
+                             keyword: 'provides'
+                   fname: FName  Where('extra_mass')
+                           value: 'extra_mass'
+                   lbracket: LBRACKET  Where('[')
+                              glyph: '['
+                   unit: RcompUnit  Where('g')
+                          pint_string: 'g'
+                   rbracket: RBRACKET  Where(']')
+                              glyph: ']'
+              e6: FunStatement  Where('provides power [W]')
+                   comment: None
+                   keyword: ProvideKeyword  Where('provides')
+                             keyword: 'provides'
+                   fname: FName  Where('power')
+                           value: 'power'
+                   lbracket: LBRACKET  Where('[')
+                              glyph: '['
+                   unit: RcompUnit  Where('W')
+                          pint_string: 'W'
+                   rbracket: RBRACKET  Where(']')
+                              glyph: ']'
+              e7: ResStatement  Where('requires cost_fix_veh [CHF]')
+                   comment: None
+                   keyword: RequireKeyword  Where('requires')
+                             keyword: 'requires'
+                   rname: RName  Where('cost_fix_veh')
+                           value: 'cost_fix_veh'
+                   lbracket: LBRACKET  Where('[')
+                              glyph: '['
+                   unit: RcompUnit  Where('CHF')
+                          pint_string: 'CHF'
+                   rbracket: RBRACKET  Where(']')
+                              glyph: ']'
+              e8: ResStatement  Where('requires cost_op_veh [CHF/m]')
+                   comment: None
+                   keyword: RequireKeyword  Where('requires')
+                             keyword: 'requires'
+                   rname: RName  Where('cost_op_veh')
+                           value: 'cost_op_veh'
+                   lbracket: LBRACKET  Where('[')
+                              glyph: '['
+                   unit: RcompUnit  Where('CHF/m')
+                          pint_string: 'CHF / m'
+                   rbracket: RBRACKET  Where(']')
+                              glyph: ']'
+              e9: ResStatement  Where('requires energy_externalities [g/m]')
+                   comment: None
+                   keyword: RequireKeyword  Where('requires')
+                             keyword: 'requires'
+                   rname: RName  Where('energy_externalities')
+                           value: 'energy_externalities'
+                   lbracket: LBRACKET  Where('[')
+                              glyph: '['
+                   unit: RcompUnit  Where('g/m')
+                          pint_string: 'g / m'
+                   rbracket: RBRACKET  Where(']')
+                              glyph: ']'
+              e10: ResStatement  Where('requires system_noise [dimensionless]')
+                    comment: None
+                    keyword: RequireKeyword  Where('requires')
+                              keyword: 'requires'
+                    rname: RName  Where('system_noise')
+                            value: 'system_noise'
+                    lbracket: LBRACKET  Where('[')
+                               glyph: '['
+                    unit: RcompUnit  Where('dimensionless')
+                           pint_string: 'm/m'
+                    rbracket: RBRACKET  Where(']')
+                               glyph: ']'
+ prep: ImplementedbyKeyword  Where('implemented-by')
+        keyword: 'implemented-by'
+ impl: CodeSpec  Where('code mcdp_dp_tests.primitivedps.CatalogueDPTable(fileName="/Users/gioele/Desktop/Mobility/mcdp/src/mcdp_data/bundled.mcdp_repo/shelves/examples.mcdpshelf/ral2020.mcdplib/csv_catalogues/vehicle.csv",nF=7)')
+        keyword: CodeKeyword  Where('code')
+                  keyword: 'code'
+        function: FuncName  Where('mcdp_dp_tests.primitivedps.CatalogueDPTable')
+                   value: 'mcdp_dp_tests.primitivedps.CatalogueDPTable'
+        arguments: List4  Where('fileName="/Users/gioele/Desktop/Mobility/mcdp/src/mcdp_data/bundled.mcdp_repo/shelves/examples.mcdpshelf/ral2020.mcdplib/csv_catalogues/vehicle.csv",nF=7')
+                    e0: ArgName  Where('fileName')
+                         value: 'fileName'
+                    e1: ArgValue  Where('"/Users/gioele/Desktop/Mobility/mcdp/src/mcdp_data/bundled.mcdp_repo/shelves/examples.mcdpshelf/ral2020.mcdplib/csv_catalogues/vehicle.csv"')
+                         python_value: '/Users/gioele/Desktop/Mobility/mcdp/src/mcdp_data/bundled.mcdp_repo/shelves/examples.mcdpshelf/ral2020.mcdplib/csv_catalogues/vehicle.csv'
+                    e2: ArgName  Where('nF')
+                         value: 'nF'
+                    e3: ArgValue  Where('7')
+                         python_value: 7

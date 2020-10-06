@@ -1,0 +1,8 @@
+catalogue {
+
+provides implement_lane_keeping_at_delta [s]
+requires computation [ops]
+
+model1 | 1 s| 10 ops
+model2 | 2 s| 3 ops
+}

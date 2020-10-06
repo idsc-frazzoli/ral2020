@@ -1,0 +1,520 @@
+digraph G { 
+
+                graph [fontname = "STIX Two Math"];
+                 node [fontname = "STIX Two Math"];
+                 edge [fontname = "STIX Two Math"];
+                rankdir=LR;
+   node1 [shape="plaintext",label=""];
+   
+   node2 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a, b⟩, ⟨c, d⟩⟩ ⟼ {⟨b, ⟨a, d, c⟩⟩}\n h*: ⟨A, ⟨B, C, D⟩⟩ ⟼ {⟨⟨B, A⟩, ⟨D, C⟩⟩}"];
+   
+   node3 [shape="box",style="rounded",label="MeetNDualDP\n h: a ⟼ {⟨a, a⟩}\n h*: ⟨r1, r2⟩ ⟼ {r1 ∨ r2}"];
+   
+   node4 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node5 [shape="plaintext",label="|"];
+   
+   node6 [shape="plaintext",label="|"];
+   
+   node7 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a, b⟩, ⟨c, d, e⟩⟩ ⟼ {⟨b, ⟨⟨c, ⟨d, e⟩⟩, a⟩⟩}\n h*: ⟨A, ⟨⟨B, ⟨C, D⟩⟩, E⟩⟩ ⟼ {⟨⟨E, A⟩, ⟨B, C, D⟩⟩}"];
+   
+   node8 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node9 [shape="box",style="rounded",label="CatalogueDP\n h: f ⟼ Min { r_i | f_i ≽ f}\n h*: r ⟼ Max { f_i | r_i ≼ f}"];
+   
+   node10 [shape="box",style="rounded",label="Mux\n h: ⟨a, b, c, d, e, f, g, h, i, j, k, l⟩ ⟼ {⟨⟨h, k, ⟨⟨e, d, f, g⟩⟩, ⟨⟨a, c, b⟩⟩, ⟨⟨j, i⟩⟩⟩, l⟩}\n h*: ⟨⟨A, B, ⟨⟨C, D, E, F⟩⟩, ⟨⟨G, H, I⟩⟩, ⟨⟨J, K⟩⟩⟩, L⟩ ⟼ {⟨G, I, H, D, C, E, F, A, K, J, B, L⟩}"];
+   
+   node11 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node12 [shape="box",style="rounded",label="LimitMaximals\n h: f ⟼ {⟨⟩} if f ∈ ↓{⊤ s}, else ø\n h*: ⟨⟩ ⟼ {⊤ s}"];
+   
+   node13 [shape="plaintext",label="|"];
+   
+   node14 [shape="plaintext",label="|"];
+   
+   node15 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a, b, ⟨⟨c, d, e, f⟩⟩, ⟨⟨g, h, i⟩⟩, ⟨⟨j, k⟩⟩⟩, ⟨⟩⟩ ⟼ {⟨⟨b, ⟨⟨c, d, e, f⟩⟩, ⟨⟨g, h, i⟩⟩, ⟨⟨j, k⟩⟩⟩, a⟩}\n h*: ⟨⟨A, ⟨⟨B, C, D, E⟩⟩, ⟨⟨F, G, H⟩⟩, ⟨⟨I, J⟩⟩⟩, K⟩ ⟼ {⟨⟨K, A, ⟨⟨B, C, D, E⟩⟩, ⟨⟨F, G, H⟩⟩, ⟨⟨I, J⟩⟩⟩, ⟨⟩⟩}"];
+   
+   node16 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node17 [shape="box",style="rounded",label="CatalogueDP\n h: f ⟼ Min { r_i | f_i ≽ f}\n h*: r ⟼ Max { f_i | r_i ≼ f}"];
+   
+   node18 [shape="plaintext",label="|"];
+   
+   node19 [shape="plaintext",label="|"];
+   
+   node20 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node21 [shape="plaintext",label="|"];
+   
+   node22 [shape="plaintext",label="|"];
+   
+   node23 [shape="box",style="rounded",label="Mux\n h: ⟨⟨⟨a, ⟨⟨b, c, d, e⟩⟩, ⟨⟨f, g, h⟩⟩, ⟨⟨i, j⟩⟩⟩, k⟩, ⟨l, m⟩⟩ ⟼ {⟨⟨a, ⟨⟨b, c, d, e⟩⟩, ⟨⟨f, g, h⟩⟩, ⟨⟨i, j⟩⟩⟩, ⟨⟨l, m⟩, k⟩⟩}\n h*: ⟨⟨A, ⟨⟨B, C, D, E⟩⟩, ⟨⟨F, G, H⟩⟩, ⟨⟨I, J⟩⟩⟩, ⟨⟨K, L⟩, M⟩⟩ ⟼ {⟨⟨⟨A, ⟨⟨B, C, D, E⟩⟩, ⟨⟨F, G, H⟩⟩, ⟨⟨I, J⟩⟩⟩, M⟩, ⟨K, L⟩⟩}"];
+   
+   node24 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node25 [shape="box",style="rounded",label="CatalogueDP\n h: f ⟼ Min { r_i | f_i ≽ f}\n h*: r ⟼ Max { f_i | r_i ≼ f}"];
+   
+   node26 [shape="box",style="rounded",label="Mux\n h: ⟨a, b, c, d⟩ ⟼ {⟨⟨a, b, d⟩, c⟩}\n h*: ⟨⟨A, B, C⟩, D⟩ ⟼ {⟨A, B, D, C⟩}"];
+   
+   node27 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node28 [shape="box",style="rounded",label="CatalogueDP\n h: f ⟼ Min { r_i | f_i ≽ f}\n h*: r ⟼ Max { f_i | r_i ≼ f}"];
+   
+   node29 [shape="plaintext",label="|"];
+   
+   node30 [shape="plaintext",label="|"];
+   
+   node31 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a, b, c⟩, d⟩ ⟼ {⟨⟨b, c, d⟩, a⟩}\n h*: ⟨⟨A, B, C⟩, D⟩ ⟼ {⟨⟨D, A, B⟩, C⟩}"];
+   
+   node32 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node33 [shape="box",style="rounded",label="Conversion\n h: f ⟼ {ceil(f)}\n h*: r ⟼ {(float) r}"];
+   
+   node34 [shape="plaintext",label="|"];
+   
+   node35 [shape="plaintext",label="|"];
+   
+   node36 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node37 [shape="plaintext",label="|"];
+   
+   node38 [shape="plaintext",label="|"];
+   
+   node39 [shape="box",style="rounded",label="Mux\n h: ⟨⟨⟨a, b, c⟩, d⟩, e⟩ ⟼ {⟨⟨a, b, d⟩, ⟨e, c⟩⟩}\n h*: ⟨⟨A, B, C⟩, ⟨D, E⟩⟩ ⟼ {⟨⟨⟨A, B, E⟩, C⟩, D⟩}"];
+   
+   node40 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node41 [shape="box",style="rounded",label="CatalogueDP\n h: f ⟼ Min { r_i | f_i ≽ f}\n h*: r ⟼ Max { f_i | r_i ≼ f}"];
+   
+   node42 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node43 [shape="plaintext",label="|"];
+   
+   node44 [shape="plaintext",label="|"];
+   
+   node45 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a, b⟩, c⟩ ⟼ {⟨a, ⟨c, b⟩⟩}\n h*: ⟨A, ⟨B, C⟩⟩ ⟼ {⟨⟨A, C⟩, B⟩}"];
+   
+   node46 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node47 [shape="box",style="rounded",label="SumNDP\n h: ⟨f1, f2⟩ ⟼ {f1 + f2}\n h*: r ⟼  {⟨f1, f2⟩ | f1+f2 = r}"];
+   
+   node48 [shape="plaintext",label="|"];
+   
+   node49 [shape="plaintext",label="|"];
+   
+   node50 [shape="plaintext",label="|"];
+   
+   node51 [shape="plaintext",label="|"];
+   
+   node52 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a, b, c⟩, ⟨d, e⟩⟩ ⟼ {⟨⟨a, b, d, e⟩, c⟩}\n h*: ⟨⟨A, B, C, D⟩, E⟩ ⟼ {⟨⟨A, B, E⟩, ⟨C, D⟩⟩}"];
+   
+   node53 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node54 [shape="box",style="rounded",label="Limit\n h: f ⟼ {⟨⟩} if f ≼ 10, else ø\n h*: ⟨⟩ ⟼ {10}"];
+   
+   node55 [shape="plaintext",label="|"];
+   
+   node56 [shape="plaintext",label="|"];
+   
+   node57 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a, b, c, d⟩, ⟨⟩⟩ ⟼ {⟨⟨b, d⟩, ⟨c, a⟩⟩}\n h*: ⟨⟨A, B⟩, ⟨C, D⟩⟩ ⟼ {⟨⟨D, A, C, B⟩, ⟨⟩⟩}"];
+   
+   node58 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node59 [shape="box",style="rounded",label="CatalogueDP\n h: f ⟼ Min { r_i | f_i ≽ f}\n h*: r ⟼ Max { f_i | r_i ≼ f}"];
+   
+   node60 [shape="plaintext",label="|"];
+   
+   node61 [shape="plaintext",label="|"];
+   
+   node62 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node63 [shape="plaintext",label="|"];
+   
+   node64 [shape="plaintext",label="|"];
+   
+   node65 [shape="box",style="rounded",label="Mux\n h: ⟨⟨⟨a, b⟩, ⟨c, d, e⟩⟩, f⟩ ⟼ {⟨⟨a, ⟨⟨e, d⟩⟩, c⟩, ⟨f, b⟩⟩}\n h*: ⟨⟨A, ⟨⟨B, C⟩⟩, D⟩, ⟨E, F⟩⟩ ⟼ {⟨⟨⟨A, F⟩, ⟨D, C, B⟩⟩, E⟩}"];
+   
+   node66 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node67 [shape="box",style="rounded",label="SumNDP\n h: ⟨f1, f2⟩ ⟼ {f1 + f2}\n h*: r ⟼  {⟨f1, f2⟩ | f1+f2 = r}"];
+   
+   node68 [shape="plaintext",label="|"];
+   
+   node69 [shape="plaintext",label="|"];
+   
+   node70 [shape="plaintext",label="|"];
+   
+   node71 [shape="plaintext",label="|"];
+   
+   node72 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a, ⟨⟨b, c, d, e⟩⟩, ⟨⟨f, g, h⟩⟩, ⟨⟨i, j⟩⟩⟩, ⟨⟨k, ⟨⟨l, m⟩⟩, n⟩, o⟩⟩ ⟼ {⟨⟨⟨⟨b, c, d, e⟩⟩, ⟨⟨f, g, h⟩⟩, ⟨⟨i, j⟩⟩, ⟨⟨l, m⟩⟩, n, o⟩, ⟨k, a⟩⟩}\n h*: ⟨⟨⟨⟨A, B, C, D⟩⟩, ⟨⟨E, F, G⟩⟩, ⟨⟨H, I⟩⟩, ⟨⟨J, K⟩⟩, L, M⟩, ⟨N, O⟩⟩ ⟼ {⟨⟨O, ⟨⟨A, B, C, D⟩⟩, ⟨⟨E, F, G⟩⟩, ⟨⟨H, I⟩⟩⟩, ⟨⟨N, ⟨⟨J, K⟩⟩, L⟩, M⟩⟩}"];
+   
+   node73 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node74 [shape="box",style="rounded",label="SumNDP\n h: ⟨f1, f2⟩ ⟼ {f1 + f2}\n h*: r ⟼  {⟨f1, f2⟩ | f1+f2 = r}"];
+   
+   node75 [shape="plaintext",label="|"];
+   
+   node76 [shape="plaintext",label="|"];
+   
+   node77 [shape="box",style="rounded",label="Mux\n h: ⟨⟨⟨⟨a, b, c, d⟩⟩, ⟨⟨e, f, g⟩⟩, ⟨⟨h, i⟩⟩, ⟨⟨j, k⟩⟩, l, m⟩, n⟩ ⟼ {⟨⟨⟨⟨a, b, c, d⟩⟩, ⟨⟨e, f, g⟩⟩, ⟨⟨h, i⟩⟩, ⟨⟨j, k⟩⟩, l, n⟩, m⟩}\n h*: ⟨⟨⟨⟨A, B, C, D⟩⟩, ⟨⟨E, F, G⟩⟩, ⟨⟨H, I⟩⟩, ⟨⟨J, K⟩⟩, L, M⟩, N⟩ ⟼ {⟨⟨⟨⟨A, B, C, D⟩⟩, ⟨⟨E, F, G⟩⟩, ⟨⟨H, I⟩⟩, ⟨⟨J, K⟩⟩, L, N⟩, M⟩}"];
+   
+   node78 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node79 [shape="box",style="rounded",label="CatalogueDP\n h: f ⟼ Min { r_i | f_i ≽ f}\n h*: r ⟼ Max { f_i | r_i ≼ f}"];
+   
+   node80 [shape="plaintext",label="|"];
+   
+   node81 [shape="plaintext",label="|"];
+   
+   node82 [shape="box",style="rounded",label="Mux\n h: ⟨⟨⟨⟨a, b, c, d⟩⟩, ⟨⟨e, f, g⟩⟩, ⟨⟨h, i⟩⟩, ⟨⟨j, k⟩⟩, l, m⟩, ⟨n, o, p⟩⟩ ⟼ {⟨⟨⟨⟨a, b, c, d⟩⟩, ⟨⟨e, f, g⟩⟩, ⟨⟨j, k⟩⟩, l, m, n, o, p⟩, ⟨i, h⟩⟩}\n h*: ⟨⟨⟨⟨A, B, C, D⟩⟩, ⟨⟨E, F, G⟩⟩, ⟨⟨H, I⟩⟩, J, K, L, M, N⟩, ⟨O, P⟩⟩ ⟼ {⟨⟨⟨⟨A, B, C, D⟩⟩, ⟨⟨E, F, G⟩⟩, ⟨⟨P, O⟩⟩, ⟨⟨H, I⟩⟩, J, K⟩, ⟨L, M, N⟩⟩}"];
+   
+   node83 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node84 [shape="box",style="rounded",label="ProductNDP\n h: ⟨f1, f2⟩ ⟼ {f1⋅f2}\n h*: r ⟼ Max {⟨f1, f2⟩ | f1⋅f2 ≤ r}"];
+   
+   node85 [shape="plaintext",label="|"];
+   
+   node86 [shape="plaintext",label="|"];
+   
+   node87 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node88 [shape="plaintext",label="|"];
+   
+   node89 [shape="plaintext",label="|"];
+   
+   node90 [shape="box",style="rounded",label="Mux\n h: ⟨⟨⟨⟨⟨a, b, c, d⟩⟩, ⟨⟨e, f, g⟩⟩, ⟨⟨h, i⟩⟩, j, k, l, m, n⟩, o⟩, p⟩ ⟼ {⟨⟨⟨⟨e, f, g⟩⟩, ⟨⟨h, i⟩⟩, j, l, m, n, o, k⟩, ⟨b, a, c, d, p⟩⟩}\n h*: ⟨⟨⟨⟨A, B, C⟩⟩, ⟨⟨D, E⟩⟩, F, G, H, I, J, K⟩, ⟨L, M, N, O, P⟩⟩ ⟼ {⟨⟨⟨⟨⟨M, L, N, O⟩⟩, ⟨⟨A, B, C⟩⟩, ⟨⟨D, E⟩⟩, F, K, G, H, I⟩, J⟩, P⟩}"];
+   
+   node91 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node92 [shape="box",style="rounded",label="CatalogueDP\n h: f ⟼ Min { r_i | f_i ≽ f}\n h*: r ⟼ Max { f_i | r_i ≼ f}"];
+   
+   node93 [shape="plaintext",label="|"];
+   
+   node94 [shape="plaintext",label="|"];
+   
+   node95 [shape="plaintext",label="|"];
+   
+   node96 [shape="plaintext",label="|"];
+   
+   node97 [shape="box",style="rounded",label="Mux\n h: ⟨a, ⟨⟨⟨⟨b, c, d⟩⟩, ⟨⟨e, f⟩⟩, g, h, i, j, k, l⟩, ⟨m, n, o⟩⟩⟩ ⟼ {⟨⟨⟨⟨b, c, d⟩⟩, g, h, i, j, k, l, m, n, o⟩, ⟨f, e, a⟩⟩}\n h*: ⟨⟨⟨⟨A, B, C⟩⟩, D, E, F, G, H, I, J, K, L⟩, ⟨M, N, O⟩⟩ ⟼ {⟨O, ⟨⟨⟨⟨A, B, C⟩⟩, ⟨⟨N, M⟩⟩, D, E, F, G, H, I⟩, ⟨J, K, L⟩⟩⟩}"];
+   
+   node98 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node99 [shape="box",style="rounded",label="CatalogueDP\n h: f ⟼ Min { r_i | f_i ≽ f}\n h*: r ⟼ Max { f_i | r_i ≼ f}"];
+   
+   node100 [shape="plaintext",label="|"];
+   
+   node101 [shape="plaintext",label="|"];
+   
+   node102 [shape="box",style="rounded",label="Mux\n h: ⟨⟨⟨⟨a, b, c⟩⟩, d, e, f, g, h, i, j, k, l⟩, ⟨m, n, o⟩⟩ ⟼ {⟨⟨⟨⟨a, b, c⟩⟩, d, e, f, h, i, j, k, l, m, n⟩, ⟨o, g⟩⟩}\n h*: ⟨⟨⟨⟨A, B, C⟩⟩, D, E, F, G, H, I, J, K, L, M⟩, ⟨N, O⟩⟩ ⟼ {⟨⟨⟨⟨A, B, C⟩⟩, D, E, F, O, G, H, I, J, K⟩, ⟨L, M, N⟩⟩}"];
+   
+   node103 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node104 [shape="box",style="rounded",label="SumNDP\n h: ⟨f1, f2⟩ ⟼ {f1 + f2}\n h*: r ⟼  {⟨f1, f2⟩ | f1+f2 = r}"];
+   
+   node105 [shape="plaintext",label="|"];
+   
+   node106 [shape="plaintext",label="|"];
+   
+   node107 [shape="box",style="rounded",label="Mux\n h: ⟨⟨⟨⟨a, b, c⟩⟩, d, e, f, g, h, i, j, k, l, m⟩, n⟩ ⟼ {⟨⟨⟨⟨a, b, c⟩⟩, d, e, g, h, i, j, k, l, n⟩, ⟨m, f⟩⟩}\n h*: ⟨⟨⟨⟨A, B, C⟩⟩, D, E, F, G, H, I, J, K, L⟩, ⟨M, N⟩⟩ ⟼ {⟨⟨⟨⟨A, B, C⟩⟩, D, E, N, F, G, H, I, J, K, M⟩, L⟩}"];
+   
+   node108 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node109 [shape="box",style="rounded",label="SumNDP\n h: ⟨f1, f2⟩ ⟼ {f1 + f2}\n h*: r ⟼  {⟨f1, f2⟩ | f1+f2 = r}"];
+   
+   node110 [shape="plaintext",label="|"];
+   
+   node111 [shape="plaintext",label="|"];
+   
+   node112 [shape="box",style="rounded",label="Mux\n h: ⟨⟨⟨⟨a, b, c⟩⟩, d, e, f, g, h, i, j, k, l⟩, m⟩ ⟼ {⟨⟨⟨⟨a, b, c⟩⟩, d, e, f, g, h, j, k, l⟩, ⟨i, m⟩⟩}\n h*: ⟨⟨⟨⟨A, B, C⟩⟩, D, E, F, G, H, I, J, K⟩, ⟨L, M⟩⟩ ⟼ {⟨⟨⟨⟨A, B, C⟩⟩, D, E, F, G, H, L, I, J, K⟩, M⟩}"];
+   
+   node113 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node114 [shape="box",style="rounded",label="SumNDP\n h: ⟨f1, f2⟩ ⟼ {f1 + f2}\n h*: r ⟼  {⟨f1, f2⟩ | f1+f2 = r}"];
+   
+   node115 [shape="plaintext",label="|"];
+   
+   node116 [shape="plaintext",label="|"];
+   
+   node117 [shape="box",style="rounded",label="Mux\n h: ⟨⟨⟨⟨a, b, c⟩⟩, d, e, f, g, h, i, j, k⟩, l⟩ ⟼ {⟨⟨⟨⟨a, b, c⟩⟩, d, e, f, g, h, j, l⟩, ⟨i, k⟩⟩}\n h*: ⟨⟨⟨⟨A, B, C⟩⟩, D, E, F, G, H, I, J⟩, ⟨K, L⟩⟩ ⟼ {⟨⟨⟨⟨A, B, C⟩⟩, D, E, F, G, H, K, I, L⟩, J⟩}"];
+   
+   node118 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node119 [shape="box",style="rounded",label="SumNDP\n h: ⟨f1, f2⟩ ⟼ {f1 + f2}\n h*: r ⟼  {⟨f1, f2⟩ | f1+f2 = r}"];
+   
+   node120 [shape="plaintext",label="|"];
+   
+   node121 [shape="plaintext",label="|"];
+   
+   node122 [shape="box",style="rounded",label="Mux\n h: ⟨⟨⟨⟨a, b, c⟩⟩, d, e, f, g, h, i, j⟩, k⟩ ⟼ {⟨⟨d, e, f, g, h, i⟩, ⟨⟨⟩, ⟨⟨⟨a, b, c⟩⟩, j, k⟩⟩⟩}\n h*: ⟨⟨A, B, C, D, E, F⟩, ⟨⟨⟩, ⟨⟨⟨G, H, I⟩⟩, J, K⟩⟩⟩ ⟼ {⟨⟨⟨⟨G, H, I⟩⟩, A, B, C, D, E, F, J⟩, K⟩}"];
+   
+   node123 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node124 [shape="box",style="rounded",label="ConstantMinimals\n h: ⟨⟩ ⟼ {0 m}\n h*: r ⟼ {⟨⟩} if r ∈ ↑{0 m}, else ø"];
+   
+   node125 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node126 [shape="plaintext",label="|"];
+   
+   node127 [shape="plaintext",label="|"];
+   
+   node128 [shape="box",style="rounded",label="Mux\n h: ⟨a, ⟨⟨⟨b, c, d⟩⟩, e, f⟩⟩ ⟼ {⟨⟨⟩, ⟨⟨⟨b, c, d⟩⟩, a, e, f⟩⟩}\n h*: ⟨⟨⟩, ⟨⟨⟨A, B, C⟩⟩, D, E, F⟩⟩ ⟼ {⟨D, ⟨⟨⟨A, B, C⟩⟩, E, F⟩⟩}"];
+   
+   node129 [shape="box",style="rounded",label="Constant\n h: ⟨⟩ ⟼ {⟨1 person/car⟩}\n h*: r ⟼ {⟨⟩} if r ≼ ⟨1 person/car⟩, else ø"];
+   
+   node130 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node131 [shape="plaintext",label="|"];
+   
+   node132 [shape="plaintext",label="|"];
+   
+   node133 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a⟩, ⟨⟨⟨b, c, d⟩⟩, e, f, g⟩⟩ ⟼ {⟨b, d, c, a, e, f, g⟩}\n h*: ⟨A, B, C, D, E, F, G⟩ ⟼ {⟨⟨D⟩, ⟨⟨⟨A, C, B⟩⟩, E, F, G⟩⟩}"];
+   
+   node134 [shape="box",style="rounded",label="CatalogueDP\n h: f ⟼ Min { r_i | f_i ≽ f}\n h*: r ⟼ Max { f_i | r_i ≼ f}"];
+   
+   node135 [shape="plaintext",label="|"];
+   
+   node136 [shape="plaintext",label="|"];
+   
+   node137 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a, b, c, d, e, f⟩, ⟨g, h, i, j⟩⟩ ⟼ {⟨⟨a, b, c, d, e, f, g, h, j⟩, i⟩}\n h*: ⟨⟨A, B, C, D, E, F, G, H, I⟩, J⟩ ⟼ {⟨⟨A, B, C, D, E, F⟩, ⟨G, H, J, I⟩⟩}"];
+   
+   node138 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node139 [shape="box",style="rounded",label="Conversion\n h: f ⟼ {f × 1609.344000}\n h*: r ⟼ {r × 0.000621}"];
+   
+   node140 [shape="plaintext",label="|"];
+   
+   node141 [shape="plaintext",label="|"];
+   
+   node142 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a, b, c, d, e, f, g, h, i⟩, j⟩ ⟼ {⟨⟨a, c, d, e, h, i, j⟩, ⟨f, g, b⟩⟩}\n h*: ⟨⟨A, B, C, D, E, F, G⟩, ⟨H, I, J⟩⟩ ⟼ {⟨⟨A, J, B, C, D, H, I, E, F⟩, G⟩}"];
+   
+   node143 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node144 [shape="box",style="rounded",label="SumNDP\n h: ⟨f1, f2, f3⟩ ⟼ {f1 + f2 + f3}\n h*: r ⟼  {⟨f1, f2, f3⟩ | f1+f2+f3 = r}"];
+   
+   node145 [shape="plaintext",label="|"];
+   
+   node146 [shape="plaintext",label="|"];
+   
+   node147 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a, b, c, d, e, f, g⟩, h⟩ ⟼ {⟨⟨a, b, c, d, f, g, h⟩, e⟩}\n h*: ⟨⟨A, B, C, D, E, F, G⟩, H⟩ ⟼ {⟨⟨A, B, C, D, H, E, F⟩, G⟩}"];
+   
+   node148 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node149 [shape="box",style="rounded",label="Conversion\n h: f ⟼ {f × 1609.344000}\n h*: r ⟼ {r × 0.000621}"];
+   
+   node150 [shape="plaintext",label="|"];
+   
+   node151 [shape="plaintext",label="|"];
+   
+   node152 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a, b, c, d, e, f, g⟩, h⟩ ⟼ {⟨⟨a, b, c, e, f, h⟩, ⟨d, g⟩⟩}\n h*: ⟨⟨A, B, C, D, E, F⟩, ⟨G, H⟩⟩ ⟼ {⟨⟨A, B, C, G, D, E, H⟩, F⟩}"];
+   
+   node153 [shape="box",style="rounded",label="IdentityDP\n h: f ⟼ {f}\n h*: r ⟼ {r}"];
+   
+   node154 [shape="box",style="rounded",label="SumNDP\n h: ⟨f1, f2⟩ ⟼ {f1 + f2}\n h*: r ⟼  {⟨f1, f2⟩ | f1+f2 = r}"];
+   
+   node155 [shape="plaintext",label="|"];
+   
+   node156 [shape="plaintext",label="|"];
+   
+   node157 [shape="box",style="rounded",label="Mux\n h: ⟨⟨a, b, c, d, e, f⟩, g⟩ ⟼ {⟨⟨g, f, b, e, c⟩, ⟨a, d⟩⟩}\n h*: ⟨⟨A, B, C, D, E⟩, ⟨F, G⟩⟩ ⟼ {⟨⟨F, C, E, G, D, B⟩, A⟩}"];
+   
+   node158 [label="|",shape="plaintext"];
+   
+   node159 [label="|",shape="plaintext"];
+   
+   node160 [shape="plaintext",label=""];
+   
+   node1->node158 [label="PosetProduct(2: R[m/s],R[])",arrowhead="none"];
+   node2->node5 [label="PosetProduct(2: R[],PosetProduct(3: R[m/s],R[],R[s]))",arrowhead="none"];
+   node3->node6 [label="PosetProduct(2: R[],R[])",arrowhead="none"];
+   node4->node6 [label="PosetProduct(3: R[m/s],R[],R[s])",arrowhead="none"];
+   node5->node3 [label="R[]",arrowhead="none"];
+   node5->node4 [label="PosetProduct(3: R[m/s],R[],R[s])",arrowhead="none"];
+   node6->node7 [label="PosetProduct(2: PosetProduct(2: R[],R[]),PosetProduct(3: R[m/s],R[],R[s]))",arrowhead="none"];
+   node7->node95 [label="PosetProduct(2: R[],PosetProduct(2: PosetProduct(2: R[m/s],PosetProduct(2: R[],R[s])),R[]))",arrowhead="none"];
+   node8->node96 [label="R[]",arrowhead="none"];
+   node9->node10 [label="PosetProduct(12: R[m/s],R[m/s²],R[m/s²],R[],R[],R[],R[Hz],R[],R[],R[kg*m/s],R[],R[s])",arrowhead="none"];
+   node10->node13 [label="PosetProduct(2: PosetProduct(5: R[],R[],PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[]))),R[s])",arrowhead="none"];
+   node11->node14 [label="PosetProduct(5: R[],R[],PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])))",arrowhead="none"];
+   node12->node14 [label="PosetProduct([])",arrowhead="none"];
+   node13->node11 [label="PosetProduct(5: R[],R[],PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])))",arrowhead="none"];
+   node13->node12 [label="R[s]",arrowhead="none"];
+   node14->node15 [label="PosetProduct(2: PosetProduct(5: R[],R[],PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[]))),PosetProduct([]))",arrowhead="none"];
+   node15->node18 [label="PosetProduct(2: PosetProduct(4: R[],PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[]))),R[])",arrowhead="none"];
+   node16->node19 [label="PosetProduct(4: R[],PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])))",arrowhead="none"];
+   node17->node19 [label="R[op]",arrowhead="none"];
+   node18->node16 [label="PosetProduct(4: R[],PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])))",arrowhead="none"];
+   node18->node17 [label="R[]",arrowhead="none"];
+   node19->node22 [label="PosetProduct(2: PosetProduct(4: R[],PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[]))),R[op])",arrowhead="none"];
+   node20->node22 [label="PosetProduct(2: R[],R[s])",arrowhead="none"];
+   node21->node9 [label="R[m/s]",arrowhead="none"];
+   node21->node20 [label="PosetProduct(2: R[],R[s])",arrowhead="none"];
+   node22->node23 [label="PosetProduct(2: PosetProduct(2: PosetProduct(4: R[],PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[]))),R[op]),PosetProduct(2: R[],R[s]))",arrowhead="none"];
+   node23->node70 [label="PosetProduct(2: PosetProduct(4: R[],PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[]))),PosetProduct(2: PosetProduct(2: R[],R[s]),R[op]))",arrowhead="none"];
+   node24->node71 [label="PosetProduct(4: R[],PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])))",arrowhead="none"];
+   node25->node26 [label="PosetProduct(4: R[],R[],R[s],R[])",arrowhead="none"];
+   node26->node29 [label="PosetProduct(2: PosetProduct(3: R[],R[],R[]),R[s])",arrowhead="none"];
+   node27->node30 [label="PosetProduct(3: R[],R[],R[])",arrowhead="none"];
+   node28->node30 [label="R[op]",arrowhead="none"];
+   node29->node27 [label="PosetProduct(3: R[],R[],R[])",arrowhead="none"];
+   node29->node28 [label="R[s]",arrowhead="none"];
+   node30->node31 [label="PosetProduct(2: PosetProduct(3: R[],R[],R[]),R[op])",arrowhead="none"];
+   node31->node34 [label="PosetProduct(2: PosetProduct(3: R[],R[],R[op]),R[])",arrowhead="none"];
+   node32->node35 [label="PosetProduct(3: R[],R[],R[op])",arrowhead="none"];
+   node33->node35 [label="ℕ",arrowhead="none"];
+   node34->node32 [label="PosetProduct(3: R[],R[],R[op])",arrowhead="none"];
+   node34->node33 [label="R[]",arrowhead="none"];
+   node35->node38 [label="PosetProduct(2: PosetProduct(3: R[],R[],R[op]),ℕ)",arrowhead="none"];
+   node36->node38 [label="R[s]",arrowhead="none"];
+   node37->node25 [label="R[]",arrowhead="none"];
+   node37->node36 [label="R[s]",arrowhead="none"];
+   node38->node39 [label="PosetProduct(2: PosetProduct(2: PosetProduct(3: R[],R[],R[op]),ℕ),R[s])",arrowhead="none"];
+   node39->node50 [label="PosetProduct(2: PosetProduct(3: R[],R[],ℕ),PosetProduct(2: R[s],R[op]))",arrowhead="none"];
+   node40->node51 [label="PosetProduct(3: R[],R[],ℕ)",arrowhead="none"];
+   node41->node44 [label="PosetProduct(2: R[Hz],R[op])",arrowhead="none"];
+   node42->node44 [label="R[op]",arrowhead="none"];
+   node43->node41 [label="R[s]",arrowhead="none"];
+   node43->node42 [label="R[op]",arrowhead="none"];
+   node44->node45 [label="PosetProduct(2: PosetProduct(2: R[Hz],R[op]),R[op])",arrowhead="none"];
+   node45->node48 [label="PosetProduct(2: R[Hz],PosetProduct(2: R[op],R[op]))",arrowhead="none"];
+   node46->node49 [label="R[Hz]",arrowhead="none"];
+   node47->node49 [label="R[op]",arrowhead="none"];
+   node48->node46 [label="R[Hz]",arrowhead="none"];
+   node48->node47 [label="PosetProduct(2: R[op],R[op])",arrowhead="none"];
+   node49->node51 [label="PosetProduct(2: R[Hz],R[op])",arrowhead="none"];
+   node50->node40 [label="PosetProduct(3: R[],R[],ℕ)",arrowhead="none"];
+   node50->node43 [label="PosetProduct(2: R[s],R[op])",arrowhead="none"];
+   node51->node52 [label="PosetProduct(2: PosetProduct(3: R[],R[],ℕ),PosetProduct(2: R[Hz],R[op]))",arrowhead="none"];
+   node52->node55 [label="PosetProduct(2: PosetProduct(4: R[],R[],R[Hz],R[op]),ℕ)",arrowhead="none"];
+   node53->node56 [label="PosetProduct(4: R[],R[],R[Hz],R[op])",arrowhead="none"];
+   node54->node56 [label="PosetProduct([])",arrowhead="none"];
+   node55->node53 [label="PosetProduct(4: R[],R[],R[Hz],R[op])",arrowhead="none"];
+   node55->node54 [label="ℕ",arrowhead="none"];
+   node56->node57 [label="PosetProduct(2: PosetProduct(4: R[],R[],R[Hz],R[op]),PosetProduct([]))",arrowhead="none"];
+   node57->node60 [label="PosetProduct(2: PosetProduct(2: R[],R[op]),PosetProduct(2: R[Hz],R[]))",arrowhead="none"];
+   node58->node61 [label="PosetProduct(2: R[],R[op])",arrowhead="none"];
+   node59->node61 [label="PosetProduct(3: R[s],R[pixel/sr],R[Hz])",arrowhead="none"];
+   node60->node58 [label="PosetProduct(2: R[],R[op])",arrowhead="none"];
+   node60->node59 [label="PosetProduct(2: R[Hz],R[])",arrowhead="none"];
+   node61->node64 [label="PosetProduct(2: PosetProduct(2: R[],R[op]),PosetProduct(3: R[s],R[pixel/sr],R[Hz]))",arrowhead="none"];
+   node62->node64 [label="R[op]",arrowhead="none"];
+   node63->node37 [label="PosetProduct(2: R[],R[s])",arrowhead="none"];
+   node63->node62 [label="R[op]",arrowhead="none"];
+   node64->node65 [label="PosetProduct(2: PosetProduct(2: PosetProduct(2: R[],R[op]),PosetProduct(3: R[s],R[pixel/sr],R[Hz])),R[op])",arrowhead="none"];
+   node65->node68 [label="PosetProduct(2: PosetProduct(3: R[],PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s]),PosetProduct(2: R[op],R[op]))",arrowhead="none"];
+   node66->node69 [label="PosetProduct(3: R[],PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s])",arrowhead="none"];
+   node67->node69 [label="R[op]",arrowhead="none"];
+   node68->node66 [label="PosetProduct(3: R[],PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s])",arrowhead="none"];
+   node68->node67 [label="PosetProduct(2: R[op],R[op])",arrowhead="none"];
+   node69->node71 [label="PosetProduct(2: PosetProduct(3: R[],PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s]),R[op])",arrowhead="none"];
+   node70->node24 [label="PosetProduct(4: R[],PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])))",arrowhead="none"];
+   node70->node63 [label="PosetProduct(2: PosetProduct(2: R[],R[s]),R[op])",arrowhead="none"];
+   node71->node72 [label="PosetProduct(2: PosetProduct(4: R[],PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[]))),PosetProduct(2: PosetProduct(3: R[],PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s]),R[op]))",arrowhead="none"];
+   node72->node75 [label="PosetProduct(2: PosetProduct(6: PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[op]),PosetProduct(2: R[],R[]))",arrowhead="none"];
+   node73->node76 [label="PosetProduct(6: PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[op])",arrowhead="none"];
+   node74->node76 [label="R[]",arrowhead="none"];
+   node75->node73 [label="PosetProduct(6: PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[op])",arrowhead="none"];
+   node75->node74 [label="PosetProduct(2: R[],R[])",arrowhead="none"];
+   node76->node77 [label="PosetProduct(2: PosetProduct(6: PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[op]),R[])",arrowhead="none"];
+   node77->node80 [label="PosetProduct(2: PosetProduct(6: PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[]),R[op])",arrowhead="none"];
+   node78->node81 [label="PosetProduct(6: PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[])",arrowhead="none"];
+   node79->node81 [label="PosetProduct(3: R[CHF],R[g],R[W])",arrowhead="none"];
+   node80->node78 [label="PosetProduct(6: PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[])",arrowhead="none"];
+   node80->node79 [label="R[op]",arrowhead="none"];
+   node81->node82 [label="PosetProduct(2: PosetProduct(6: PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[kg*m/s],R[])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[]),PosetProduct(3: R[CHF],R[g],R[W]))",arrowhead="none"];
+   node82->node85 [label="PosetProduct(2: PosetProduct(8: PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[],R[CHF],R[g],R[W]),PosetProduct(2: R[],R[kg*m/s]))",arrowhead="none"];
+   node83->node86 [label="PosetProduct(8: PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[],R[CHF],R[g],R[W])",arrowhead="none"];
+   node84->node86 [label="R[kg*m/s]",arrowhead="none"];
+   node85->node83 [label="PosetProduct(8: PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[],R[CHF],R[g],R[W])",arrowhead="none"];
+   node85->node84 [label="PosetProduct(2: R[],R[kg*m/s])",arrowhead="none"];
+   node86->node89 [label="PosetProduct(2: PosetProduct(8: PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[],R[CHF],R[g],R[W]),R[kg*m/s])",arrowhead="none"];
+   node87->node89 [label="R[]",arrowhead="none"];
+   node88->node21 [label="PosetProduct(2: R[m/s],PosetProduct(2: R[],R[s]))",arrowhead="none"];
+   node88->node87 [label="R[]",arrowhead="none"];
+   node89->node90 [label="PosetProduct(2: PosetProduct(2: PosetProduct(8: PosetProduct(1: PosetProduct(4: R[],R[],R[],R[Hz])),PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[],R[CHF],R[g],R[W]),R[kg*m/s]),R[])",arrowhead="none"];
+   node90->node93 [label="PosetProduct(2: PosetProduct(8: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[CHF],R[g],R[W],R[kg*m/s],R[]),PosetProduct(5: R[],R[],R[],R[Hz],R[]))",arrowhead="none"];
+   node91->node94 [label="PosetProduct(8: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[CHF],R[g],R[W],R[kg*m/s],R[])",arrowhead="none"];
+   node92->node94 [label="PosetProduct(3: R[CHF],R[g],R[W])",arrowhead="none"];
+   node93->node91 [label="PosetProduct(8: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[CHF],R[g],R[W],R[kg*m/s],R[])",arrowhead="none"];
+   node93->node92 [label="PosetProduct(5: R[],R[],R[],R[Hz],R[])",arrowhead="none"];
+   node94->node96 [label="PosetProduct(2: PosetProduct(8: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[CHF],R[g],R[W],R[kg*m/s],R[]),PosetProduct(3: R[CHF],R[g],R[W]))",arrowhead="none"];
+   node95->node8 [label="R[]",arrowhead="none"];
+   node95->node88 [label="PosetProduct(2: PosetProduct(2: R[m/s],PosetProduct(2: R[],R[s])),R[])",arrowhead="none"];
+   node96->node97 [label="PosetProduct(2: R[],PosetProduct(2: PosetProduct(8: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),PosetProduct(1: PosetProduct(2: R[Hz],R[pixel/sr])),R[s],R[CHF],R[g],R[W],R[kg*m/s],R[]),PosetProduct(3: R[CHF],R[g],R[W])))",arrowhead="none"];
+   node97->node100 [label="PosetProduct(2: PosetProduct(10: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[g],R[W],R[kg*m/s],R[],R[CHF],R[g],R[W]),PosetProduct(3: R[pixel/sr],R[Hz],R[]))",arrowhead="none"];
+   node98->node101 [label="PosetProduct(10: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[g],R[W],R[kg*m/s],R[],R[CHF],R[g],R[W])",arrowhead="none"];
+   node99->node101 [label="PosetProduct(3: R[CHF],R[g],R[W])",arrowhead="none"];
+   node100->node98 [label="PosetProduct(10: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[g],R[W],R[kg*m/s],R[],R[CHF],R[g],R[W])",arrowhead="none"];
+   node100->node99 [label="PosetProduct(3: R[pixel/sr],R[Hz],R[])",arrowhead="none"];
+   node101->node102 [label="PosetProduct(2: PosetProduct(10: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[g],R[W],R[kg*m/s],R[],R[CHF],R[g],R[W]),PosetProduct(3: R[CHF],R[g],R[W]))",arrowhead="none"];
+   node102->node105 [label="PosetProduct(2: PosetProduct(11: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[g],R[kg*m/s],R[],R[CHF],R[g],R[W],R[CHF],R[g]),PosetProduct(2: R[W],R[W]))",arrowhead="none"];
+   node103->node106 [label="PosetProduct(11: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[g],R[kg*m/s],R[],R[CHF],R[g],R[W],R[CHF],R[g])",arrowhead="none"];
+   node104->node106 [label="R[W]",arrowhead="none"];
+   node105->node103 [label="PosetProduct(11: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[g],R[kg*m/s],R[],R[CHF],R[g],R[W],R[CHF],R[g])",arrowhead="none"];
+   node105->node104 [label="PosetProduct(2: R[W],R[W])",arrowhead="none"];
+   node106->node107 [label="PosetProduct(2: PosetProduct(11: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[g],R[kg*m/s],R[],R[CHF],R[g],R[W],R[CHF],R[g]),R[W])",arrowhead="none"];
+   node107->node110 [label="PosetProduct(2: PosetProduct(10: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[g],R[W],R[CHF],R[W]),PosetProduct(2: R[g],R[g]))",arrowhead="none"];
+   node108->node111 [label="PosetProduct(10: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[g],R[W],R[CHF],R[W])",arrowhead="none"];
+   node109->node111 [label="R[g]",arrowhead="none"];
+   node110->node108 [label="PosetProduct(10: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[g],R[W],R[CHF],R[W])",arrowhead="none"];
+   node110->node109 [label="PosetProduct(2: R[g],R[g])",arrowhead="none"];
+   node111->node112 [label="PosetProduct(2: PosetProduct(10: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[g],R[W],R[CHF],R[W]),R[g])",arrowhead="none"];
+   node112->node115 [label="PosetProduct(2: PosetProduct(9: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[W],R[CHF],R[W]),PosetProduct(2: R[g],R[g]))",arrowhead="none"];
+   node113->node116 [label="PosetProduct(9: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[W],R[CHF],R[W])",arrowhead="none"];
+   node114->node116 [label="R[g]",arrowhead="none"];
+   node115->node113 [label="PosetProduct(9: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[W],R[CHF],R[W])",arrowhead="none"];
+   node115->node114 [label="PosetProduct(2: R[g],R[g])",arrowhead="none"];
+   node116->node117 [label="PosetProduct(2: PosetProduct(9: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[W],R[CHF],R[W]),R[g])",arrowhead="none"];
+   node117->node120 [label="PosetProduct(2: PosetProduct(8: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[CHF],R[g]),PosetProduct(2: R[W],R[W]))",arrowhead="none"];
+   node118->node121 [label="PosetProduct(8: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[CHF],R[g])",arrowhead="none"];
+   node119->node121 [label="R[W]",arrowhead="none"];
+   node120->node118 [label="PosetProduct(8: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[CHF],R[g])",arrowhead="none"];
+   node120->node119 [label="PosetProduct(2: R[W],R[W])",arrowhead="none"];
+   node121->node122 [label="PosetProduct(2: PosetProduct(8: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[CHF],R[g]),R[W])",arrowhead="none"];
+   node122->node135 [label="PosetProduct(2: PosetProduct(6: R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[CHF]),PosetProduct(2: PosetProduct([]),PosetProduct(3: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[g],R[W])))",arrowhead="none"];
+   node123->node136 [label="PosetProduct(6: R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[CHF])",arrowhead="none"];
+   node124->node127 [label="R[m]",arrowhead="none"];
+   node125->node127 [label="PosetProduct(3: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[g],R[W])",arrowhead="none"];
+   node126->node124 [label="PosetProduct([])",arrowhead="none"];
+   node126->node125 [label="PosetProduct(3: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[g],R[W])",arrowhead="none"];
+   node127->node128 [label="PosetProduct(2: R[m],PosetProduct(3: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[g],R[W]))",arrowhead="none"];
+   node128->node131 [label="PosetProduct(2: PosetProduct([]),PosetProduct(4: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[m],R[g],R[W]))",arrowhead="none"];
+   node129->node132 [label="PosetProduct(1: R[person/car])",arrowhead="none"];
+   node130->node132 [label="PosetProduct(4: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[m],R[g],R[W])",arrowhead="none"];
+   node131->node129 [label="PosetProduct([])",arrowhead="none"];
+   node131->node130 [label="PosetProduct(4: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[m],R[g],R[W])",arrowhead="none"];
+   node132->node133 [label="PosetProduct(2: PosetProduct(1: R[person/car]),PosetProduct(4: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[m],R[g],R[W]))",arrowhead="none"];
+   node133->node134 [label="PosetProduct(7: R[m/s],R[m/s²],R[m/s²],R[person/car],R[m],R[g],R[W])",arrowhead="none"];
+   node134->node136 [label="PosetProduct(4: R[CHF],R[CHF/m],R[g/m],R[])",arrowhead="none"];
+   node135->node123 [label="PosetProduct(6: R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[CHF])",arrowhead="none"];
+   node135->node126 [label="PosetProduct(2: PosetProduct([]),PosetProduct(3: PosetProduct(1: PosetProduct(3: R[m/s],R[m/s²],R[m/s²])),R[g],R[W]))",arrowhead="none"];
+   node136->node137 [label="PosetProduct(2: PosetProduct(6: R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[CHF]),PosetProduct(4: R[CHF],R[CHF/m],R[g/m],R[]))",arrowhead="none"];
+   node137->node140 [label="PosetProduct(2: PosetProduct(9: R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[CHF],R[CHF],R[CHF/m],R[]),R[g/m])",arrowhead="none"];
+   node138->node141 [label="PosetProduct(9: R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[CHF],R[CHF],R[CHF/m],R[])",arrowhead="none"];
+   node139->node141 [label="R[g/mi]",arrowhead="none"];
+   node140->node138 [label="PosetProduct(9: R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[CHF],R[CHF],R[CHF/m],R[])",arrowhead="none"];
+   node140->node139 [label="R[g/m]",arrowhead="none"];
+   node141->node142 [label="PosetProduct(2: PosetProduct(9: R[s],R[CHF],R[kg*m/s],R[],R[CHF],R[CHF],R[CHF],R[CHF/m],R[]),R[g/mi])",arrowhead="none"];
+   node142->node145 [label="PosetProduct(2: PosetProduct(7: R[s],R[kg*m/s],R[],R[CHF],R[CHF/m],R[],R[g/mi]),PosetProduct(3: R[CHF],R[CHF],R[CHF]))",arrowhead="none"];
+   node143->node146 [label="PosetProduct(7: R[s],R[kg*m/s],R[],R[CHF],R[CHF/m],R[],R[g/mi])",arrowhead="none"];
+   node144->node146 [label="R[CHF]",arrowhead="none"];
+   node145->node143 [label="PosetProduct(7: R[s],R[kg*m/s],R[],R[CHF],R[CHF/m],R[],R[g/mi])",arrowhead="none"];
+   node145->node144 [label="PosetProduct(3: R[CHF],R[CHF],R[CHF])",arrowhead="none"];
+   node146->node147 [label="PosetProduct(2: PosetProduct(7: R[s],R[kg*m/s],R[],R[CHF],R[CHF/m],R[],R[g/mi]),R[CHF])",arrowhead="none"];
+   node147->node150 [label="PosetProduct(2: PosetProduct(7: R[s],R[kg*m/s],R[],R[CHF],R[],R[g/mi],R[CHF]),R[CHF/m])",arrowhead="none"];
+   node148->node151 [label="PosetProduct(7: R[s],R[kg*m/s],R[],R[CHF],R[],R[g/mi],R[CHF])",arrowhead="none"];
+   node149->node151 [label="R[CHF/mi]",arrowhead="none"];
+   node150->node148 [label="PosetProduct(7: R[s],R[kg*m/s],R[],R[CHF],R[],R[g/mi],R[CHF])",arrowhead="none"];
+   node150->node149 [label="R[CHF/m]",arrowhead="none"];
+   node151->node152 [label="PosetProduct(2: PosetProduct(7: R[s],R[kg*m/s],R[],R[CHF],R[],R[g/mi],R[CHF]),R[CHF/mi])",arrowhead="none"];
+   node152->node155 [label="PosetProduct(2: PosetProduct(6: R[s],R[kg*m/s],R[],R[],R[g/mi],R[CHF/mi]),PosetProduct(2: R[CHF],R[CHF]))",arrowhead="none"];
+   node153->node156 [label="PosetProduct(6: R[s],R[kg*m/s],R[],R[],R[g/mi],R[CHF/mi])",arrowhead="none"];
+   node154->node156 [label="R[CHF]",arrowhead="none"];
+   node155->node153 [label="PosetProduct(6: R[s],R[kg*m/s],R[],R[],R[g/mi],R[CHF/mi])",arrowhead="none"];
+   node155->node154 [label="PosetProduct(2: R[CHF],R[CHF])",arrowhead="none"];
+   node156->node157 [label="PosetProduct(2: PosetProduct(6: R[s],R[kg*m/s],R[],R[],R[g/mi],R[CHF/mi]),R[CHF])",arrowhead="none"];
+   node157->node159 [label="PosetProduct(2: PosetProduct(5: R[CHF],R[CHF/mi],R[kg*m/s],R[g/mi],R[]),PosetProduct(2: R[s],R[]))",arrowhead="none"];
+   node158->node2 [label="PosetProduct(2: PosetProduct(2: R[m/s],R[]),PosetProduct(2: R[s],R[]))",arrowhead="none"];
+   node159->node158 [label="PosetProduct(2: R[s],R[])",color="red",headport="sw",tailport="s",arrowhead="none"];
+   node159->node160 [label="PosetProduct(5: R[CHF],R[CHF/mi],R[kg*m/s],R[g/mi],R[])",arrowhead="none"];
+   }
