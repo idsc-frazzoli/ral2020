@@ -1,2 +1,0 @@
-LabelerDP(())
- CatalogueDP(PosetProduct(7: R[m/s],R[m/s²],R[m/s²],R[person/car],R[m],R[g],R[W])|PosetProduct(4: R[CHF],R[CHF/m],R[g/m],R[]))
