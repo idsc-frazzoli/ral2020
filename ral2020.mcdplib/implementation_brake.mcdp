@@ -1,8 +1,7 @@
-catalogue {
+dp {
 
-provides implement_brake_control [dimensionless]
+provides implement_brake_control [s]
 requires computation [ops]
 
-model1 | 1 | 10 ops
-model2 | 2 | 5 ops
+implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/implementation_brake.dpc.yaml")
 }

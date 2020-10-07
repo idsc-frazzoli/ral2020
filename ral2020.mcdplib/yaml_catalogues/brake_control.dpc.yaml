@@ -1,17 +1,33 @@
 F:
-  - m/s
-  - `timeday
-  - Nat
+  - "m/s"
+  - "`timeday"
+  - "Nat"
 R:
-  - m/s
-  - m/s^2
-  - m/s^2
-  - `poset_fp
-  - `poset_fn
-  - `poset_acc
-  - Hz
-  - kg*m/s
-  - dimensionless
-  - s
+  - "m/s"
+  - "m/s^2"
+  - "m/s^2"
+  - "`poset_fp"
+  - "`poset_fn"
+  - "`poset_acc"
+  - "Hz"
+  - "kg*m/s"
+  - "dimensionless"
+  - "s"
 
 implementations:
+  model1:
+    f_max:
+      - "Top m/s"
+      - "`timeday: Top"
+      - "Top Nat"
+    r_min:
+      - "Bottom m/s"
+      - "Bottom m/s^2"
+      - "Bottom m/s^2"
+      - "`poset_fp: Bottom"
+      - "`poset_fn: Bottom"
+      - "`poset_acc: Bottom"
+      - "Bottom Hz"
+      - "Bottom kg*m/s"
+      - "Bottom dimensionless"
+      - "Bottom s"

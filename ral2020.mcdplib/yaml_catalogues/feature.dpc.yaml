@@ -1,17 +1,17 @@
 F:
-  - Hz
-  - dimensionless
+  - "Hz"
+  - "dimensionless"
 R:
-  - s
-  - pixel/steradian
-  - Hz
+  - "s"
+  - "pixel/steradian"
+  - "Hz"
 
 implementations:
   model1:
     f_max:
-    - "1 Hz"
-    - "1 dimensionless"
+    - "Top Hz"
+    - "Top dimensionless"
     r_min:
-    - "1 s"
-    - "1 pixel/steradian"
-    - "1 Hz"
+    - "Bottom s"
+    - "Bottom pixel/steradian"
+    - "Bottom Hz"

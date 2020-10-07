@@ -1,11 +1,11 @@
 F:
-  - s
+  - "s"
 R:
-  - ops
+  - "ops"
 
 implementations:
   model1:
     f_max:
-    - "1.0 s"
+    - "Top s"
     r_min:
-    - "10.0 ops"
+    - "Bottom ops"

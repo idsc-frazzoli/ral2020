@@ -1,13 +1,13 @@
 F:
-  - `poset_fp
-  - `poset_fn
-  - `poset_acc
-  - Hz
-  - `timeday
+  - "`poset_fp"
+  - "`poset_fn"
+  - "`poset_acc"
+  - "Hz"
+  - "`timeday"
 R:
-  - CHF
-  - g
-  - W
+  - "CHF"
+  - "g"
+  - "W"
 
 implementations:
   modelPuck:

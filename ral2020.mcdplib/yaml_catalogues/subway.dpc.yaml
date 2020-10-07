@@ -1,8 +1,8 @@
 F:
-  - Nat
+  - "Nat"
 R:
-  - $
-  - $/year
+  - "$"
+  - "$/year"
 
 implementations:
   modelsub1:

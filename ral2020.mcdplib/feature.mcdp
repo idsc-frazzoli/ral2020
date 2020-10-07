@@ -5,5 +5,5 @@ dp {
    requires resolution [pixel/steradian]
    requires frequency [Hz]
 
-   implemented-by code mcdp_importers.CatalogueDPTable(fileName="ral2020.mcdplib/csv_catalogues/feature.csv",nF=2)
+   implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/feature.dpc.yaml")
 }
