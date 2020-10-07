@@ -18,7 +18,7 @@ implementations:
   model1:
     f_max:
       - "Top m/s"
-      - "`timeday: Top"
+      - "`timeday: day"
       - "Top Nat"
     r_min:
       - "Bottom m/s"
