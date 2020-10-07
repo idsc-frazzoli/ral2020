@@ -1,12 +1,12 @@
 F:
-  - pixel/steradian
-  - Hz
+  - "pixel/steradian"
+  - "Hz"
   - "`timeday"
 
 R:
-  - CHF
-  - g
-  - W
+  - "CHF"
+  - "g"
+  - "W"
 
 implementations:
   modelAce251gm:

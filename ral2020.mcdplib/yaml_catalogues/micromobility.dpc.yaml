@@ -1,10 +1,10 @@
 F:
-  - miles/hour
+  - "miles/hour"
 R:
-  - $
-  - $/km
-  - 1/years
-  - kg/mile
+  - "$"
+  - "$/km"
+  - "1/years"
+  - "kg/mile"
 
 implementations:
   modelbike:

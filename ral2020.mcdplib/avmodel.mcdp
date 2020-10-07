@@ -9,7 +9,8 @@ discomfort_model = instance` discomfort
 
 # Functionalities
 provides speed_cruise [m/s]
-provides environment [`timeday]
+provides time_day [`timeday]
+provides people_street [Nat]
 # Resources
 requires fixed_cost [CHF]
 requires operational_cost [CHF/mile]
@@ -47,8 +48,9 @@ extra_mass provided by vehicle_model >= mass_total
 # System properties
 required fixed_cost >= cost_total
 provided speed_cruise <= speed_cruise provided by long_simulation_model
-provided environment <= environment provided by long_simulation_model
-provided environment <= environment provided by lane_simulation_model
+provided time_day <= time_day provided by long_simulation_model
+provided people_street <= people_street provided by long_simulation_model
+provided time_day <= time_day provided by lane_simulation_model
 danger_from_simulation = risk required by long_simulation_model * hazard required by long_simulation_model
 required danger >= danger_from_simulation
 required operational_cost >= cost_op_veh required by vehicle_model
