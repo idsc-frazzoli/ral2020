@@ -5,4 +5,4 @@ To use the docker version do:
 
 Then:
 
-    mcdp-solve -d ral2020.mcdplib lane_cameras '<1 pixel/steradian, 1 Hz, `timeday: day>'
+    docker-mcdp-solve -d ral2020.mcdplib lane_cameras '<1 pixel/steradian, 1 Hz, `timeday: day>'
