@@ -1,0 +1,17 @@
+F:
+  - m/s
+  - `timeday
+  - Nat
+R:
+  - m/s
+  - m/s^2
+  - m/s^2
+  - `poset_fp
+  - `poset_fn
+  - `poset_acc
+  - Hz
+  - kg*m/s
+  - dimensionless
+  - s
+
+implementations:

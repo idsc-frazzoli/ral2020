@@ -1,5 +1,7 @@
 dp {
    provides speed_cruise [m/s]
+   provides time_day [`timeday]
+   provides people_street [Nat]
    # Dynamical performances
    requires speed_max [m/s]
    requires acc_max [m/s^2]
@@ -12,11 +14,11 @@ dp {
    # Computation
    requires implement_brake_control [dimensionless]
    # Autonomy performance
-   requires risk [dimensionless]
-   requires hazard [kg*m/s]
+   #requires risk [dimensionless]
+   #requires hazard [kg*m/s]
+   requires danger [kg*m/s]
    requires discomfort_brake [dimensionless]
    requires latency_braking [s]
-   ## higher latency sensing?
 
    implemented-by code mcdp_importers.CatalogueDPTable(fileName="ral2020.mcdplib/csv_catalogues/brake_control.csv",nF=1)
 }

@@ -8,7 +8,7 @@ implementation_lane_model = instance` implementation_lane
 implementation_feature_model = instance` implementation_feature
 
 # Functionalities
-provides environment [dimensionless]
+provides time_day [`timeday]
 provides system_noise [dimensionless]
 # Resources
 requires cost [CHF]
@@ -29,7 +29,7 @@ frequency required by feature_model <= frequency provided by lane_cameras_model
 ## Feature and Lane Keeping
 observation_noise required by lane_control_model <= precision provided by feature_model
 ## System level
-provided environment <= environment provided by lane_cameras_model
+provided time_day <= time_day provided by lane_cameras_model
 provided system_noise <= system_noise provided by lane_control_model
 required cost >= cost required by lane_cameras_model
 required power >= power required by lane_cameras_model
