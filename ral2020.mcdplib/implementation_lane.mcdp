@@ -1,8 +1,7 @@
-catalogue {
+dp {
 
 provides implement_lane_keeping_at_delta [s]
 requires computation [ops]
 
-model1 | 1 s| 10 ops
-model2 | 2 s| 3 ops
+implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/implementation_lane_keeping.dpc.yaml")
 }

@@ -6,5 +6,6 @@ dp {
     # No functionality
     provides number_subway [Nat]
 
-    implemented-by code mcdp_dp_tests.primitivedps.CatalogueDPTable(fileName="/Users/gioele/Desktop/Mobility/mcdp/src/mcdp_data/bundled.mcdp_repo/shelves/examples.mcdpshelf/ral2020.mcdplib/csv_catalogues/subway.csv",nF=1)
+    implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/subway.dpc.yaml")
+
 }

@@ -1,7 +1,6 @@
-catalogue {
+dp {
 provides implement_feature_at_delta [s]
 requires computation [ops]
 
-model1 | 1 s | 10 ops
-model1 | 2 s | 5 ops
+implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/implementation_feature_extraction.dpc.yaml")
 }

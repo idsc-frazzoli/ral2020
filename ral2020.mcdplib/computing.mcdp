@@ -3,5 +3,6 @@ dp {
    requires cost [CHF]
    requires mass [g]
    requires power [W]
-   implemented-by code mcdp_importers.CatalogueDPTable(fileName="ral2020.mcdplib/csv_catalogues/computing.csv",nF=1)
+
+   implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/computing.dpc.yaml")
 }

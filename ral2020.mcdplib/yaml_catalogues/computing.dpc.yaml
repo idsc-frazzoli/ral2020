@@ -4,12 +4,11 @@ R:
   - "CHF"
   - "g"
   - "W"
-
 implementations:
   modelNebula:
     f_max:
-      - "Top ops"
+      - "1000000.0 ops"
     r_min:
       - "4750.0 CHF"
-      - "4800.0 kg"
+      - "4800.0 g"
       - "65.0 W"
