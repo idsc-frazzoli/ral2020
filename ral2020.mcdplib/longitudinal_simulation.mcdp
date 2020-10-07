@@ -6,7 +6,7 @@ implementation_brake_model = instance` implementation_brake
 # Functionalities
 provides speed_cruise [m/s]
 provides time_day [`timeday]
-provides people_street [Nat/km]
+provides people_street [persons/km]
 # Resources
 requires v_max [m/s]
 requires acc_max [m/s^2]

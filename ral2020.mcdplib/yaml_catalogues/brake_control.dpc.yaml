@@ -1,7 +1,7 @@
 F:
   - "m/s"
   - "`timeday"
-  - "Nat"
+  - "persons/km"
 R:
   - "m/s"
   - "m/s^2"
@@ -19,7 +19,7 @@ implementations:
     f_max:
       - "Top m/s"
       - "`timeday: day"
-      - "Nat: Top"
+      - "Top persons/kar"
     r_min:
       - "Bottom m/s"
       - "Bottom m/s^2"

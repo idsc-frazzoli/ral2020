@@ -1,7 +1,7 @@
 dp {
    provides speed_cruise [m/s]
    provides time_day [`timeday]
-   provides people_street [Nat/km]
+   provides people_street [persons/km]
    provides latency [s]
    # Dynamical performances
    requires speed_max [m/s]
