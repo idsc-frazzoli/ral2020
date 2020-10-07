@@ -19,7 +19,7 @@ implementations:
     f_max:
       - "Top m/s"
       - "`timeday: day"
-      - "Top Nat"
+      - "Nat: Top"
     r_min:
       - "Bottom m/s"
       - "Bottom m/s^2"
