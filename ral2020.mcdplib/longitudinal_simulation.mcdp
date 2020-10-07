@@ -6,7 +6,7 @@ implementation_brake_model = instance` implementation_brake
 # Functionalities
 provides speed_cruise [m/s]
 provides time_day [`timeday]
-provides people_street [Nat]
+provides people_street [Nat/km]
 # Resources
 requires v_max [m/s]
 requires acc_max [m/s^2]
@@ -19,7 +19,6 @@ requires danger [kg*m/s]
 #requires risk [dimensionless]
 #requires hazard [kg*m/s]
 requires discomfort_brake [dimensionless]
-requires latency_braking [s]
 
 # Setup constraints
 ## Sensing and Control
@@ -27,6 +26,7 @@ false_positives required by brake_control_model <= false_positives provided by l
 false_negatives required by brake_control_model <= false_negatives provided by long_sensing_model
 accuracy required by brake_control_model <= accuracy provided by long_sensing_model
 frequency required by brake_control_model <= frequency provided by long_sensing_model
+latency required by long_sensing_model <= latency provided by brake_control_model
 ## Control and Implementation
 implement_brake_control required by brake_control_model <= implement_brake_control provided by implementation_brake_model
 ## General fun/res

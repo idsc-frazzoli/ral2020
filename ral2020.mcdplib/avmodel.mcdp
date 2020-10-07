@@ -10,7 +10,7 @@ discomfort_model = instance` discomfort
 # Functionalities
 provides speed_cruise [m/s]
 provides time_day [`timeday]
-provides people_street [Nat]
+provides people_street [Nat/km]
 # Resources
 requires fixed_cost [CHF]
 requires operational_cost [CHF/mile]
@@ -58,6 +58,5 @@ required energy_externalities >= energy_externalities required by vehicle_model
 required discomfort >= discomfort required by discomfort_model
 
 1 person/car <= capacity provided by vehicle_model
-ignore latency_braking required by long_simulation_model
 ignore driving_range provided by vehicle_model
 }

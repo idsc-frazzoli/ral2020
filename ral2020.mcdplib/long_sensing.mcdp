@@ -7,6 +7,7 @@ dp {
    requires cost [CHF]
    requires mass [g]
    requires power [W]
+   requires latency [us]
 
    implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/long_sensing.dpc.yaml")
    }

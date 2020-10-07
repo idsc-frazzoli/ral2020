@@ -8,6 +8,7 @@ R:
   - "CHF"
   - "g"
   - "W"
+  - "us"
 
 implementations:
   modelPuckDay:
@@ -21,17 +22,19 @@ implementations:
     - "4000.0 CHF"
     - "830.0 g"
     - "8.0 W"
+    - "Bottom s"
   modelPuckNight:
     f_max:
-      - "`poset_fp: puck_night"
-      - "`poset_fn: puck_night"
-      - "`poset_acc: puck_night"
-      - "5.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: puck_night"
+    - "`poset_fn: puck_night"
+    - "`poset_acc: puck_night"
+    - "5.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "4000.0 CHF"
-      - "830.0 g"
-      - "8.0 W"
+    - "4000.0 CHF"
+    - "830.0 g"
+    - "8.0 W"
+    - "Bottom s"
 
   modelHDL32Day:
     f_max:
@@ -44,17 +47,19 @@ implementations:
     - "30000.0 CHF"
     - "1300.0 g"
     - "12.0 W"
+    - "Bottom s"
   modelHDL32Night:
     f_max:
-      - "`poset_fp: hdl32_night"
-      - "`poset_fn: hdl32_night"
-      - "`poset_acc: hdl32_night"
-      - "5.0 Hz"
-      - "`timeday: night"
+    - "`poset_fp: hdl32_night"
+    - "`poset_fn: hdl32_night"
+    - "`poset_acc: hdl32_night"
+    - "5.0 Hz"
+    - "`timeday: night"
     r_min:
-      - "30000.0 CHF"
-      - "1300.0 g"
-      - "12.0 W"
+    - "30000.0 CHF"
+    - "1300.0 g"
+    - "12.0 W"
+    - "Bottom s"
 
   modelHDL64Day:
     f_max:
@@ -67,18 +72,19 @@ implementations:
     - "75000.0 CHF"
     - "12700.0 g"
     - "60.0 W"
+    - "Bottom s"
   modelHDL64Night:
     f_max:
-      - "`poset_fp: hdl64_night"
-      - "`poset_fn: hdl64_night"
-      - "`poset_acc: hdl64_night"
-      - "5.0 Hz"
-      - "`timeday: night"
+    - "`poset_fp: hdl64_night"
+    - "`poset_fn: hdl64_night"
+    - "`poset_acc: hdl64_night"
+    - "5.0 Hz"
+    - "`timeday: night"
     r_min:
-      - "75000.0 CHF"
-      - "12700.0 g"
-      - "60.0 W"
-
+    - "75000.0 CHF"
+    - "12700.0 g"
+    - "60.0 W"
+    - "Bottom s"
   modelPandar40Day:
     f_max:
     - "`poset_fp: pandar40_day"
@@ -87,20 +93,22 @@ implementations:
     - "10.0 Hz"
     - "`timeday:day"
     r_min:
-    - "??? CHF"
+    - "Bottom CHF"
     - "1430.0 g"
     - "15.0 W"
+    - "Bottom s"
   modelPandar40Night:
     f_max:
-      - "`poset_fp: pandar40_night"
-      - "`poset_fn: padar40_night"
-      - "`poset_acc: pandar40_night"
-      - "10.0 Hz"
-      - "`timeday: night"
+    - "`poset_fp: pandar40_night"
+    - "`poset_fn: padar40_night"
+    - "`poset_acc: pandar40_night"
+    - "10.0 Hz"
+    - "`timeday: night"
     r_min:
-      - "Bottom CHF"
-      - "1430.0 g"
-      - "15.0 W"
+    - "Bottom CHF"
+    - "1430.0 g"
+    - "15.0 W"
+    - "Bottom s"
 
   modelPandar40PDay:
     f_max:
@@ -113,18 +121,20 @@ implementations:
     - "Bottom CHF"
     - "1520.0 g"
     - "18.0 W"
+    - "Bottom s"
 
   modelPandar40PNight:
     f_max:
-      - "`poset_fp: pandar40P_night"
-      - "`poset_fn: padar40P_night"
-      - "`poset_acc: pandar40P_night"
-      - "10.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: pandar40P_night"
+    - "`poset_fn: padar40P_night"
+    - "`poset_acc: pandar40P_night"
+    - "10.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "Bottom CHF"
-      - "1520.0 g"
-      - "18.0 W"
+    - "Bottom CHF"
+    - "1520.0 g"
+    - "18.0 W"
+    - "Bottom s"
 
   modelPandar64Day:
     f_max:
@@ -137,18 +147,20 @@ implementations:
     - "Bottom CHF"
     - "1520.0 g"
     - "22.0 W"
+    - "Bottom s"
 
   modelPandar64Night:
     f_max:
-      - "`poset_fp: pandar64_night"
-      - "`poset_fn: padar64_night"
-      - "`poset_acc: pandar64_night"
-      - "10.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: pandar64_night"
+    - "`poset_fn: padar64_night"
+    - "`poset_acc: pandar64_night"
+    - "10.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "Bottom CHF"
-      - "1520.0 g"
-      - "22.0 W"
+    - "Bottom CHF"
+    - "1520.0 g"
+    - "22.0 W"
+    - "Bottom s"
 
   modelPandar128Day:
     f_max:
@@ -161,18 +173,19 @@ implementations:
     - "Bottom CHF"
     - "1630.0 g"
     - "25.0 W"
+    - "Bottom s"
   modelPandar128Night:
     f_max:
-      - "`poset_fp: pandar128_night"
-      - "`poset_fn: padar128_night"
-      - "`poset_acc: pandar128_night"
-      - "10.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: pandar128_night"
+    - "`poset_fn: padar128_night"
+    - "`poset_acc: pandar128_night"
+    - "10.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "Bottom CHF"
-      - "1630.0 g"
-      - "25.0 W"
-
+    - "Bottom CHF"
+    - "1630.0 g"
+    - "25.0 W"
+    - "Bottom s"
   modelOS032Day:
     f_max:
     - "`poset_fp: OS032_day"
@@ -184,18 +197,19 @@ implementations:
     - "6000.0 CHF"
     - "445.0 g"
     - "17.0 W"
+    - "Bottom s"
   modelOS032Night:
     f_max:
-      - "`poset_fp: OS032_night"
-      - "`poset_fn: OS032_night"
-      - "`poset_acc: OS032_night"
-      - "10.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: OS032_night"
+    - "`poset_fn: OS032_night"
+    - "`poset_acc: OS032_night"
+    - "10.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "6000.0 CHF"
-      - "445.0 g"
-      - "17.0 W"
-
+    - "6000.0 CHF"
+    - "445.0 g"
+    - "17.0 W"
+    - "Bottom s"
   modelOS064Day:
     f_max:
     - "`poset_fp: OS064_day"
@@ -207,18 +221,19 @@ implementations:
     - "7900.0 CHF"
     - "445.0 g"
     - "17.0 W"
+    - "Bottom s"
   modelOS064Night:
     f_max:
-      - "`poset_fp: OS064_night"
-      - "`poset_fn: OS064_night"
-      - "`poset_acc: OS064_night"
-      - "10.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: OS064_night"
+    - "`poset_fn: OS064_night"
+    - "`poset_acc: OS064_night"
+    - "10.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "7900.0 CHF"
-      - "445.0 g"
-      - "17.0 W"
-
+    - "7900.0 CHF"
+    - "445.0 g"
+    - "17.0 W"
+    - "Bottom s"
   modelOS0128:
     f_max:
     - "`poset_fp: OS0128_day"
@@ -230,18 +245,19 @@ implementations:
     - "11800.0 CHF"
     - "445.0 g"
     - "17.0 W"
+    - "Bottom s"
   modelOS0128:
     f_max:
-      - "`poset_fp: OS0128_night"
-      - "`poset_fn: OS0128_night"
-      - "`poset_acc: OS0128_night"
-      - "10.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: OS0128_night"
+    - "`poset_fn: OS0128_night"
+    - "`poset_acc: OS0128_night"
+    - "10.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "11800.0 CHF"
-      - "445.0 g"
-      - "17.0 W"
-
+    - "11800.0 CHF"
+    - "445.0 g"
+    - "17.0 W"
+    - "Bottom s"
   modelOS132Day:
     f_max:
     - "`poset_fp: OS132_day"
@@ -253,18 +269,19 @@ implementations:
     - "8000.0 CHF"
     - "455.0 g"
     - "17.0 W"
+    - "Bottom s"
   modelOS132Night:
     f_max:
-      - "`poset_fp: OS132_night"
-      - "`poset_fn: OS132_night"
-      - "`poset_acc: OS132_night"
-      - "10.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: OS132_night"
+    - "`poset_fn: OS132_night"
+    - "`poset_acc: OS132_night"
+    - "10.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "8000.0 CHF"
-      - "455.0 g"
-      - "17.0 W"
-
+    - "8000.0 CHF"
+    - "455.0 g"
+    - "17.0 W"
+    - "Bottom s"
   modelOS164Day:
     f_max:
     - "`poset_fp: OS164_day"
@@ -276,18 +293,19 @@ implementations:
     - "11800.0 CHF"
     - "455.0 g"
     - "17.0 W"
+    - "Bottom s"
   modelOS164Night:
     f_max:
-      - "`poset_fp: OS164_night"
-      - "`poset_fn: OS164_night"
-      - "`poset_acc: OS164_night"
-      - "10.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: OS164_night"
+    - "`poset_fn: OS164_night"
+    - "`poset_acc: OS164_night"
+    - "10.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "11800.0 CHF"
-      - "455.0 g"
-      - "17.0 W"
-
+    - "11800.0 CHF"
+    - "455.0 g"
+    - "17.0 W"
+    - "Bottom s"
   modelOS1128Day:
     f_max:
     - "`poset_fp: OS1128_day"
@@ -299,18 +317,19 @@ implementations:
     - "17600.0 CHF"
     - "455.0 g"
     - "17.0 W"
+    - "Bottom s"
   modelOS1128Night:
     f_max:
-      - "`poset_fp: OS1128_night"
-      - "`poset_fn: OS1128_night"
-      - "`poset_acc: OS1128_night"
-      - "10.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: OS1128_night"
+    - "`poset_fn: OS1128_night"
+    - "`poset_acc: OS1128_night"
+    - "10.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "17600.0 CHF"
-      - "455.0 g"
-      - "17.0 W"
-
+    - "17600.0 CHF"
+    - "455.0 g"
+    - "17.0 W"
+    - "Bottom s"
   modelOS232Day:
     f_max:
     - "`poset_fp: OS232_day"
@@ -322,18 +341,19 @@ implementations:
     - "16000.0 CHF"
     - "930.0 g"
     - "21.0 W"
+    - "Bottom s"
   modelOS232Night:
     f_max:
-      - "`poset_fp: OS232_night"
-      - "`poset_fn: OS232_night"
-      - "`poset_acc: OS232_night"
-      - "10.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: OS232_night"
+    - "`poset_fn: OS232_night"
+    - "`poset_acc: OS232_night"
+    - "10.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "16000.0 CHF"
-      - "930.0 g"
-      - "21.0 W"
-
+    - "16000.0 CHF"
+    - "930.0 g"
+    - "21.0 W"
+    - "Bottom s"
   modelOS264Day:
     f_max:
     - "`poset_fp: OS264_day"
@@ -345,18 +365,19 @@ implementations:
     - "19700.0 CHF"
     - "930.0 g"
     - "21.0 W"
+    - "Bottom s"
   modelOS264Night:
     f_max:
-      - "`poset_fp: OS264_night"
-      - "`poset_fn: OS264_night"
-      - "`poset_acc: OS264_night"
-      - "10.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: OS264_night"
+    - "`poset_fn: OS264_night"
+    - "`poset_acc: OS264_night"
+    - "10.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "19700.0 CHF"
-      - "930.0 g"
-      - "21.0 W"
-
+    - "19700.0 CHF"
+    - "930.0 g"
+    - "21.0 W"
+    - "Bottom s"
   modelOS2128Day:
     f_max:
     - "`poset_fp: OS2128_day"
@@ -368,18 +389,19 @@ implementations:
     - "23700.0 CHF"
     - "930.0 g"
     - "21.0 W"
+    - "Bottom s"
   modelOS2128Night:
     f_max:
-      - "`poset_fp: OS2128_night"
-      - "`poset_fn: OS2128_night"
-      - "`poset_acc: OS2128_night"
-      - "10.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: OS2128_night"
+    - "`poset_fn: OS2128_night"
+    - "`poset_acc: OS2128_night"
+    - "10.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "23700.0 CHF"
-      - "930.0 g"
-      - "21.0 W"
-
+    - "23700.0 CHF"
+    - "930.0 g"
+    - "21.0 W"
+    - "Bottom s"
   modelAce251gmDay:
     f_max:
     - "`poset_fp: Ace251gm_day"
@@ -391,17 +413,19 @@ implementations:
     - "550.0 CHF"
     - "105.0 g"
     - "3.8 W"
-  modelAce251gm:
+    - "19 us"
+  modelAce251gmNight:
     f_max:
-      - "`poset_fp: Ace251gm_night"
-      - "`poset_fn: Ace251gm_night"
-      - "`poset_acc: Ace251gm_night"
-      - "51.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: Ace251gm_night"
+    - "`poset_fn: Ace251gm_night"
+    - "`poset_acc: Ace251gm_night"
+    - "51.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "550.0 CHF"
-      - "105.0 g"
-      - "3.8 W"
+    - "550.0 CHF"
+    - "105.0 g"
+    - "3.8 W"
+    - "19 us"
 
   modelAce160umDay:
     f_max:
@@ -414,18 +438,19 @@ implementations:
     - "550.0 CHF"
     - "90.0 g"
     - "4.3 W"
+    - "19 us"
   modelAce160umNight:
     f_max:
-      - "`poset_fp: Ace2160um_night"
-      - "`poset_fn: Ace2160um_night"
-      - "`poset_acc: Ace2160um_night"
-      - "160.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: Ace2160um_night"
+    - "`poset_fn: Ace2160um_night"
+    - "`poset_acc: Ace2160um_night"
+    - "160.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "550.0 CHF"
-      - "90.0 g"
-      - "4.3 W"
-
+    - "550.0 CHF"
+    - "90.0 g"
+    - "4.3 W"
+    - "19 us"
   modelAce22gmDay:
     f_max:
     - "`poset_fp: Ace22gm_day"
@@ -437,18 +462,19 @@ implementations:
     - "500.0 CHF"
     - "105.0 g"
     - "3.1 W"
+    - "10 us"
   modelAce22gmNight:
     f_max:
-      - "`poset_fp: Ace22gm_night"
-      - "`poset_fn: Ace22gm_night"
-      - "`poset_acc: Ace22gm_night"
-      - "22.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: Ace22gm_night"
+    - "`poset_fn: Ace22gm_night"
+    - "`poset_acc: Ace22gm_night"
+    - "22.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "500.0 CHF"
-      - "105.0 g"
-      - "3.1 W"
-
+    - "500.0 CHF"
+    - "105.0 g"
+    - "3.1 W"
+    - "10 us"
   modelAce13gmDay:
     f_max:
     - "`poset_fp: Ace13gm_day"
@@ -460,18 +486,19 @@ implementations:
     - "530.0 CHF"
     - "105.0 g"
     - "3.1 W"
+    - "12 us"
   modelAce13gmNight:
     f_max:
-      - "`poset_fp: Ace13gm_night"
-      - "`poset_fn: Ace13gm_night"
-      - "`poset_acc: Ace13gm_night"
-      - "13.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: Ace13gm_night"
+    - "`poset_fn: Ace13gm_night"
+    - "`poset_acc: Ace13gm_night"
+    - "13.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "530.0 CHF"
-      - "105.0 g"
-      - "3.1 W"
-
+    - "530.0 CHF"
+    - "105.0 g"
+    - "3.1 W"
+    - "12 us"
   modelAce7gmDay:
     f_max:
     - "`poset_fp: Ace7gm_day"
@@ -483,18 +510,19 @@ implementations:
     - "1800.0 CHF"
     - "105.0 g"
     - "3.6 W"
+    - "16 us"
   modelAce7gmNight:
     f_max:
-      - "`poset_fp: Ace7gm_night"
-      - "`poset_fn: Ace7gm_night"
-      - "`poset_acc: Ace7gm_night"
-      - "7.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: Ace7gm_night"
+    - "`poset_fn: Ace7gm_night"
+    - "`poset_acc: Ace7gm_night"
+    - "7.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "1800.0 CHF"
-      - "105.0 g"
-      - "3.6 W"
-
+    - "1800.0 CHF"
+    - "105.0 g"
+    - "3.6 W"
+    - "16 us"
   modelAce5gmDay:
     f_max:
     - "`poset_fp: Ace5gm_day"
@@ -506,18 +534,19 @@ implementations:
     - "2220.0 CHF"
     - "105.0 g"
     - "3.6 W"
+    - "16 us"
   modelAce5gmNight:
     f_max:
-      - "`poset_fp: Ace5gm_night"
-      - "`poset_fn: Ace5gm_night"
-      - "`poset_acc: Ace5gm_night"
-      - "5.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: Ace5gm_night"
+    - "`poset_fn: Ace5gm_night"
+    - "`poset_acc: Ace5gm_night"
+    - "5.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "2220.0 CHF"
-      - "105.0 g"
-      - "3.6 W"
-
+    - "2220.0 CHF"
+    - "105.0 g"
+    - "3.6 W"
+    - "16 us"
   modelAce15umDay:
     f_max:
     - "`poset_fp: Ace15um_day"
@@ -529,18 +558,19 @@ implementations:
     - "2630.0 CHF"
     - "90.0 g"
     - "3.6 W"
+    - "15 us"
   modelAce15umNight:
     f_max:
-      - "`poset_fp: Ace15um_night"
-      - "`poset_fn: Ace15um_night"
-      - "`poset_acc: Ace15um_night"
-      - "15.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: Ace15um_night"
+    - "`poset_fn: Ace15um_night"
+    - "`poset_acc: Ace15um_night"
+    - "15.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "2630.0 CHF"
-      - "90.0 g"
-      - "3.6 W"
-
+    - "2630.0 CHF"
+    - "90.0 g"
+    - "3.6 W"
+    - "15 us"
   modelPointgreyDay:
     f_max:
     - "`poset_fp: Pointgrey_day"
@@ -552,14 +582,16 @@ implementations:
     - "350.0 CHF"
     - "58.0 g"
     - "2.5 W"
+    - "Bottom us"
   modelPointgreyNight:
     f_max:
-      - "`poset_fp: Pointgrey_night"
-      - "`poset_fn: Pointgrey_night"
-      - "`poset_acc: Pointgrey_night"
-      - "15.0 Hz"
-      - "`timeday:night"
+    - "`poset_fp: Pointgrey_night"
+    - "`poset_fn: Pointgrey_night"
+    - "`poset_acc: Pointgrey_night"
+    - "15.0 Hz"
+    - "`timeday:night"
     r_min:
-      - "350.0 CHF"
-      - "58.0 g"
-      - "2.5 W"
+    - "350.0 CHF"
+    - "58.0 g"
+    - "2.5 W"
+    - "Bottom us"

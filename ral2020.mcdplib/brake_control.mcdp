@@ -1,7 +1,8 @@
 dp {
    provides speed_cruise [m/s]
    provides time_day [`timeday]
-   provides people_street [Nat]
+   provides people_street [Nat/km]
+   provides latency [s]
    # Dynamical performances
    requires speed_max [m/s]
    requires acc_max [m/s^2]
@@ -18,7 +19,7 @@ dp {
    #requires hazard [kg*m/s]
    requires danger [kg*m/s]
    requires discomfort_brake [dimensionless]
-   requires latency_braking [s]
+   requires latency_braking [us]
 
    implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/brake_control.dpc.yaml")
 }

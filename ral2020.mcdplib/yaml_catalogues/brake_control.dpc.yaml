@@ -12,7 +12,7 @@ R:
   - "Hz"
   - "kg*m/s"
   - "dimensionless"
-  - "s"
+  - "us"
 
 implementations:
   model1:
@@ -30,4 +30,4 @@ implementations:
       - "Bottom Hz"
       - "Bottom kg*m/s"
       - "Bottom dimensionless"
-      - "Bottom s"
+      - "Bottom us"
