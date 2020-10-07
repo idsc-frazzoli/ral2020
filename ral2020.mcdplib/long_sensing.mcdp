@@ -1,9 +1,9 @@
 dp {
-   provides false_positives [dimensionless]
-   provides false_negatives [dimensionless]
-   provides accuracy [dimensionless]
+   provides false_positives [`poset_fp]
+   provides false_negatives [`poset_fn]
+   provides accuracy [`poset_acc]
    provides frequency [Hz]
-   provides environment [dimensionless]
+   provides time_day [`timeday]
    requires cost [CHF]
    requires mass [g]
    requires power [W]

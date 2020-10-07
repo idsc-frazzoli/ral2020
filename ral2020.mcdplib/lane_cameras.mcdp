@@ -1,7 +1,7 @@
 dp {
    provides resolution [pixel/steradian]
    provides frequency [Hz]
-   provides environment [`timeday]
+   provides time_day [`timeday]
    requires cost [CHF]
    requires mass [g]
    requires power [W]

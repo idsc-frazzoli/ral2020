@@ -1,0 +1,11 @@
+F:
+  - s
+R:
+  - ops
+
+implementations:
+  model1:
+    f_max:
+    - "1.0 s"
+    r_min:
+    - "10.0 ops"

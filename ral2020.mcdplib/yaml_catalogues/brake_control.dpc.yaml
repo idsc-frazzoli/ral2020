@@ -1,6 +1,7 @@
 F:
   - m/s
   - `timeday
+  - Nat
 R:
   - m/s
   - m/s^2
