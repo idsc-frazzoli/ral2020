@@ -2,10 +2,11 @@ dp {
    provides resolution [pixel/steradian]
    provides frequency [Hz]
    provides environment [`timeday]
+
    requires cost [CHF]
    requires mass [g]
    requires power [W]
 
 
-   implemented-by code mcdp_dp_tests.primitivedps.CatalogueDPTable(fileName="/Users/gioele/Desktop/Mobility/mcdp/src/mcdp_data/bundled.mcdp_repo/shelves/examples.mcdpshelf/ral2020.mcdplib/csv_catalogues/lane_cameras.csv",nF=3)
+   implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/csv_catalogues/lane_cameras.dpc.yaml")
 }
