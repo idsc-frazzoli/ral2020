@@ -1,5 +1,5 @@
 dp {
-   provides computation [ops]
+   provides computation [op/s]
    requires cost [CHF]
    requires mass [g]
    requires power [W]

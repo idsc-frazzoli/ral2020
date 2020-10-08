@@ -10,7 +10,7 @@ discomfort_model = instance` discomfort
 # Functionalities
 provides speed_cruise [m/s]
 provides time_day [`timeday]
-provides people_street [persons/km]
+provides people_street [pax/km]
 # Resources
 requires fixed_cost [CHF]
 requires operational_cost [CHF/mile]

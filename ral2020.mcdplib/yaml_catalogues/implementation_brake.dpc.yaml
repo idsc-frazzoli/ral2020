@@ -1,11 +1,11 @@
 F:
-  - "s"
+  - "Hz"
 R:
-  - "ops"
+  - "op/s"
 
 implementations:
   model1:
     f_max:
-    - "Top s"
+    - "Top Hz"
     r_min:
-    - "Bottom ops"
+    - "Bottom op/s"

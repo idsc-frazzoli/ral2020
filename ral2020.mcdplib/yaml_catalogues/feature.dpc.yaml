@@ -2,7 +2,7 @@ F:
   - "Hz"
   - "dimensionless"
 R:
-  - "s"
+  - "Hz"
   - "pixel/steradian"
   - "Hz"
 
@@ -12,6 +12,6 @@ implementations:
     - "Top Hz"
     - "Top dimensionless"
     r_min:
-    - "Bottom s"
+    - "Bottom Hz"
     - "Bottom pixel/steradian"
     - "Bottom Hz"

@@ -1,7 +1,7 @@
 dp {
    provides observe_at_delta [Hz]
    provides precision [dimensionless]
-   requires implement_feature_at_delta [s]
+   requires implement_feature_at_delta [Hz]
    requires resolution [pixel/steradian]
    requires frequency [Hz]
 

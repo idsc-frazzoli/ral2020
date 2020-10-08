@@ -36,9 +36,9 @@ def transformationLQG(fileName):
                 target_file.write("    r_min:\n")
                 target_file.write("    " + "- " + "\"" + data[index][2] + " dimensionless\" \n")
                 target_file.write("    " + "- " + "\"" + data[index][3] + " dimensionless\" \n")
-                target_file.write("    " + "- " + "\"" + data[index][4] + " s\" \n")
+                freq = 1.0 / float(data[index][4])
+                target_file.write("    " + "- " + "\"" + str(freq) + " Hz\" \n")
                 target_file.write("    " + "- " + "\"" + data[index][5] + " dimensionless\" \n")
-                freq = 1.0/float(data[index][4])
                 target_file.write("    " + "- " + "\"" + str(freq) + " Hz\" \n")
 
 
