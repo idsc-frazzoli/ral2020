@@ -1,7 +1,7 @@
 F:
-  - "`poset_fp"
-  - "`poset_fn"
-  - "`poset_acc"
+  - "`poset_fp_test"
+  - "`poset_fn_test"
+  - "`poset_acc_test"
   - "Hz"
   - "`timeday"
 R:
@@ -13,9 +13,9 @@ R:
 implementations:
   modelPuckDay:
     f_max:
-    - "`poset_fp: puck_day"
-    - "`poset_fn: puck_day"
-    - "`poset_acc: puck_day"
+    - "`poset_fp_test: puck_day"
+    - "`poset_fn_test: puck_day"
+    - "`poset_acc_test: puck_day"
     - "5.0 Hz"
     - "`timeday:day"
     r_min:
@@ -25,9 +25,9 @@ implementations:
     - "Bottom s"
   modelPuckNight:
     f_max:
-    - "`poset_fp: puck_night"
-    - "`poset_fn: puck_night"
-    - "`poset_acc: puck_night"
+    - "`poset_fp_test: puck_night"
+    - "`poset_fn_test: puck_night"
+    - "`poset_acc_test: puck_night"
     - "5.0 Hz"
     - "`timeday:night"
     r_min:
@@ -38,9 +38,9 @@ implementations:
 
   modelHDL32Day:
     f_max:
-    - "`poset_fp: hdl32_day"
-    - "`poset_fn: hdl32_day"
-    - "`poset_acc: hdl32_day"
+    - "`poset_fp_test: hdl32_day"
+    - "`poset_fn_test: hdl32_day"
+    - "`poset_acc_test: hdl32_day"
     - "5.0 Hz"
     - "`timeday:day"
     r_min:
@@ -50,9 +50,9 @@ implementations:
     - "Bottom s"
   modelHDL32Night:
     f_max:
-    - "`poset_fp: hdl32_night"
-    - "`poset_fn: hdl32_night"
-    - "`poset_acc: hdl32_night"
+    - "`poset_fp_test: hdl32_night"
+    - "`poset_fn_test: hdl32_night"
+    - "`poset_acc_test: hdl32_night"
     - "5.0 Hz"
     - "`timeday: night"
     r_min:
@@ -63,9 +63,9 @@ implementations:
 
   modelHDL64Day:
     f_max:
-    - "`poset_fp: hdl64_day"
-    - "`poset_fn: hdl64_day"
-    - "`poset_acc: hdl64_day"
+    - "`poset_fp_test: hdl64_day"
+    - "`poset_fn_test: hdl64_day"
+    - "`poset_acc_test: hdl64_day"
     - "5.0 Hz"
     - "`timeday:day"
     r_min:
@@ -75,9 +75,9 @@ implementations:
     - "Bottom s"
   modelHDL64Night:
     f_max:
-    - "`poset_fp: hdl64_night"
-    - "`poset_fn: hdl64_night"
-    - "`poset_acc: hdl64_night"
+    - "`poset_fp_test: hdl64_night"
+    - "`poset_fn_test: hdl64_night"
+    - "`poset_acc_test: hdl64_night"
     - "5.0 Hz"
     - "`timeday: night"
     r_min:
@@ -87,11 +87,11 @@ implementations:
     - "Bottom s"
   modelPandar40Day:
     f_max:
-    - "`poset_fp: pandar40_day"
-    - "`poset_fn: padar40_day"
-    - "`poset_acc: pandar40_day"
+    - "`poset_fp_test: pandar40_day"
+    - "`poset_fn_test: pandar40_day"
+    - "`poset_acc_test: pandar40_day"
     - "10.0 Hz"
-    - "`timeday:day"
+    - "`timeday: day"
     r_min:
     - "Bottom CHF"
     - "1430.0 g"
@@ -99,9 +99,9 @@ implementations:
     - "Bottom s"
   modelPandar40Night:
     f_max:
-    - "`poset_fp: pandar40_night"
-    - "`poset_fn: padar40_night"
-    - "`poset_acc: pandar40_night"
+    - "`poset_fp_test: pandar40_night"
+    - "`poset_fn_test: pandar40_night"
+    - "`poset_acc_test: pandar40_night"
     - "10.0 Hz"
     - "`timeday: night"
     r_min:
@@ -112,9 +112,9 @@ implementations:
 
   modelPandar40PDay:
     f_max:
-    - "`poset_fp: pandar40P_day"
-    - "`poset_fn: padar40P_day"
-    - "`poset_acc: pandar40P_day"
+    - "`poset_fp_test: pandar40P_day"
+    - "`poset_fn_test: pandar40P_day"
+    - "`poset_acc_test: pandar40P_day"
     - "10.0 Hz"
     - "`timeday:day"
     r_min:
@@ -125,9 +125,9 @@ implementations:
 
   modelPandar40PNight:
     f_max:
-    - "`poset_fp: pandar40P_night"
-    - "`poset_fn: padar40P_night"
-    - "`poset_acc: pandar40P_night"
+    - "`poset_fp_test: pandar40P_night"
+    - "`poset_fn_test: pandar40P_night"
+    - "`poset_acc_test: pandar40P_night"
     - "10.0 Hz"
     - "`timeday:night"
     r_min:
@@ -138,9 +138,9 @@ implementations:
 
   modelPandar64Day:
     f_max:
-    - "`poset_fp: pandar64_day"
-    - "`poset_fn: padar64_day"
-    - "`poset_acc: pandar64_day"
+    - "`poset_fp_test: pandar64_day"
+    - "`poset_fn_test: pandar64_day"
+    - "`poset_acc_test: pandar64_day"
     - "10.0 Hz"
     - "`timeday:day"
     r_min:
@@ -151,9 +151,9 @@ implementations:
 
   modelPandar64Night:
     f_max:
-    - "`poset_fp: pandar64_night"
-    - "`poset_fn: padar64_night"
-    - "`poset_acc: pandar64_night"
+    - "`poset_fp_test: pandar64_night"
+    - "`poset_fn_test: pandar64_night"
+    - "`poset_acc_test: pandar64_night"
     - "10.0 Hz"
     - "`timeday:night"
     r_min:
@@ -164,9 +164,9 @@ implementations:
 
   modelPandar128Day:
     f_max:
-    - "`poset_fp: pandar128_day"
-    - "`poset_fn: padar128_day"
-    - "`poset_acc: pandar128_day"
+    - "`poset_fp_test: pandar128_day"
+    - "`poset_fn_test: pandar128_day"
+    - "`poset_acc_test: pandar128_day"
     - "10.0 Hz"
     - "`timeday:day"
     r_min:
@@ -176,9 +176,9 @@ implementations:
     - "Bottom s"
   modelPandar128Night:
     f_max:
-    - "`poset_fp: pandar128_night"
-    - "`poset_fn: padar128_night"
-    - "`poset_acc: pandar128_night"
+    - "`poset_fp_test: pandar128_night"
+    - "`poset_fn_test: pandar128_night"
+    - "`poset_acc_test: pandar128_night"
     - "10.0 Hz"
     - "`timeday:night"
     r_min:
@@ -188,9 +188,9 @@ implementations:
     - "Bottom s"
   modelOS032Day:
     f_max:
-    - "`poset_fp: OS032_day"
-    - "`poset_fn: OS032_day"
-    - "`poset_acc: OS032_day"
+    - "`poset_fp_test: OS032_day"
+    - "`poset_fn_test: OS032_day"
+    - "`poset_acc_test: OS032_day"
     - "10.0 Hz"
     - "`timeday:day"
     r_min:
@@ -200,9 +200,9 @@ implementations:
     - "Bottom s"
   modelOS032Night:
     f_max:
-    - "`poset_fp: OS032_night"
-    - "`poset_fn: OS032_night"
-    - "`poset_acc: OS032_night"
+    - "`poset_fp_test: OS032_night"
+    - "`poset_fn_test: OS032_night"
+    - "`poset_acc_test: OS032_night"
     - "10.0 Hz"
     - "`timeday:night"
     r_min:
@@ -212,9 +212,9 @@ implementations:
     - "Bottom s"
   modelOS064Day:
     f_max:
-    - "`poset_fp: OS064_day"
-    - "`poset_fn: OS064_day"
-    - "`poset_acc: OS064_day"
+    - "`poset_fp_test: OS064_day"
+    - "`poset_fn_test: OS064_day"
+    - "`poset_acc_test: OS064_day"
     - "10.0 Hz"
     - "`timeday:day"
     r_min:
@@ -224,9 +224,9 @@ implementations:
     - "Bottom s"
   modelOS064Night:
     f_max:
-    - "`poset_fp: OS064_night"
-    - "`poset_fn: OS064_night"
-    - "`poset_acc: OS064_night"
+    - "`poset_fp_test: OS064_night"
+    - "`poset_fn_test: OS064_night"
+    - "`poset_acc_test: OS064_night"
     - "10.0 Hz"
     - "`timeday:night"
     r_min:
@@ -236,9 +236,9 @@ implementations:
     - "Bottom s"
   modelOS0128:
     f_max:
-    - "`poset_fp: OS0128_day"
-    - "`poset_fn: OS0128_day"
-    - "`poset_acc: OS0128_day"
+    - "`poset_fp_test: OS0128_day"
+    - "`poset_fn_test: OS0128_day"
+    - "`poset_acc_test: OS0128_day"
     - "10.0 Hz"
     - "`timeday:day"
     r_min:
@@ -248,9 +248,9 @@ implementations:
     - "Bottom s"
   modelOS0128:
     f_max:
-    - "`poset_fp: OS0128_night"
-    - "`poset_fn: OS0128_night"
-    - "`poset_acc: OS0128_night"
+    - "`poset_fp_test: OS0128_night"
+    - "`poset_fn_test: OS0128_night"
+    - "`poset_acc_test: OS0128_night"
     - "10.0 Hz"
     - "`timeday:night"
     r_min:
@@ -260,9 +260,9 @@ implementations:
     - "Bottom s"
   modelOS132Day:
     f_max:
-    - "`poset_fp: OS132_day"
-    - "`poset_fn: OS132_day"
-    - "`poset_acc: OS132_day"
+    - "`poset_fp_test: OS132_day"
+    - "`poset_fn_test: OS132_day"
+    - "`poset_acc_test: OS132_day"
     - "10.0 Hz"
     - "`timeday:day"
     r_min:
@@ -272,9 +272,9 @@ implementations:
     - "Bottom s"
   modelOS132Night:
     f_max:
-    - "`poset_fp: OS132_night"
-    - "`poset_fn: OS132_night"
-    - "`poset_acc: OS132_night"
+    - "`poset_fp_test: OS132_night"
+    - "`poset_fn_test: OS132_night"
+    - "`poset_acc_test: OS132_night"
     - "10.0 Hz"
     - "`timeday:night"
     r_min:
@@ -284,9 +284,9 @@ implementations:
     - "Bottom s"
   modelOS164Day:
     f_max:
-    - "`poset_fp: OS164_day"
-    - "`poset_fn: OS164_day"
-    - "`poset_acc: OS164_day"
+    - "`poset_fp_test: OS164_day"
+    - "`poset_fn_test: OS164_day"
+    - "`poset_acc_test: OS164_day"
     - "10.0 Hz"
     - "`timeday:day"
     r_min:
@@ -296,9 +296,9 @@ implementations:
     - "Bottom s"
   modelOS164Night:
     f_max:
-    - "`poset_fp: OS164_night"
-    - "`poset_fn: OS164_night"
-    - "`poset_acc: OS164_night"
+    - "`poset_fp_test: OS164_night"
+    - "`poset_fn_test: OS164_night"
+    - "`poset_acc_test: OS164_night"
     - "10.0 Hz"
     - "`timeday:night"
     r_min:
@@ -308,9 +308,9 @@ implementations:
     - "Bottom s"
   modelOS1128Day:
     f_max:
-    - "`poset_fp: OS1128_day"
-    - "`poset_fn: OS1128_day"
-    - "`poset_acc: OS1128_day"
+    - "`poset_fp_test: OS1128_day"
+    - "`poset_fn_test: OS1128_day"
+    - "`poset_acc_test: OS1128_day"
     - "10.0 Hz"
     - "`timeday:day"
     r_min:
@@ -320,9 +320,9 @@ implementations:
     - "Bottom s"
   modelOS1128Night:
     f_max:
-    - "`poset_fp: OS1128_night"
-    - "`poset_fn: OS1128_night"
-    - "`poset_acc: OS1128_night"
+    - "`poset_fp_test: OS1128_night"
+    - "`poset_fn_test: OS1128_night"
+    - "`poset_acc_test: OS1128_night"
     - "10.0 Hz"
     - "`timeday:night"
     r_min:
@@ -332,9 +332,9 @@ implementations:
     - "Bottom s"
   modelOS232Day:
     f_max:
-    - "`poset_fp: OS232_day"
-    - "`poset_fn: OS232_day"
-    - "`poset_acc: OS232_day"
+    - "`poset_fp_test: OS232_day"
+    - "`poset_fn_test: OS232_day"
+    - "`poset_acc_test: OS232_day"
     - "10.0 Hz"
     - "`timeday:day"
     r_min:
@@ -344,9 +344,9 @@ implementations:
     - "Bottom s"
   modelOS232Night:
     f_max:
-    - "`poset_fp: OS232_night"
-    - "`poset_fn: OS232_night"
-    - "`poset_acc: OS232_night"
+    - "`poset_fp_test: OS232_night"
+    - "`poset_fn_test: OS232_night"
+    - "`poset_acc_test: OS232_night"
     - "10.0 Hz"
     - "`timeday:night"
     r_min:
@@ -356,9 +356,9 @@ implementations:
     - "Bottom s"
   modelOS264Day:
     f_max:
-    - "`poset_fp: OS264_day"
-    - "`poset_fn: OS264_day"
-    - "`poset_acc: OS264_day"
+    - "`poset_fp_test: OS264_day"
+    - "`poset_fn_test: OS264_day"
+    - "`poset_acc_test: OS264_day"
     - "10.0 Hz"
     - "`timeday:day"
     r_min:
@@ -368,9 +368,9 @@ implementations:
     - "Bottom s"
   modelOS264Night:
     f_max:
-    - "`poset_fp: OS264_night"
-    - "`poset_fn: OS264_night"
-    - "`poset_acc: OS264_night"
+    - "`poset_fp_test: OS264_night"
+    - "`poset_fn_test: OS264_night"
+    - "`poset_acc_test: OS264_night"
     - "10.0 Hz"
     - "`timeday:night"
     r_min:
@@ -380,9 +380,9 @@ implementations:
     - "Bottom s"
   modelOS2128Day:
     f_max:
-    - "`poset_fp: OS2128_day"
-    - "`poset_fn: OS2128_day"
-    - "`poset_acc: OS2128_day"
+    - "`poset_fp_test: OS2128_day"
+    - "`poset_fn_test: OS2128_day"
+    - "`poset_acc_test: OS2128_day"
     - "10.0 Hz"
     - "`timeday:day"
     r_min:
@@ -392,9 +392,9 @@ implementations:
     - "Bottom s"
   modelOS2128Night:
     f_max:
-    - "`poset_fp: OS2128_night"
-    - "`poset_fn: OS2128_night"
-    - "`poset_acc: OS2128_night"
+    - "`poset_fp_test: OS2128_night"
+    - "`poset_fn_test: OS2128_night"
+    - "`poset_acc_test: OS2128_night"
     - "10.0 Hz"
     - "`timeday:night"
     r_min:
@@ -404,9 +404,9 @@ implementations:
     - "Bottom s"
   modelAce251gmDay:
     f_max:
-    - "`poset_fp: Ace251gm_day"
-    - "`poset_fn: Ace251gm_day"
-    - "`poset_acc: Ace251gm_day"
+    - "`poset_fp_test: Ace251gm_day"
+    - "`poset_fn_test: Ace251gm_day"
+    - "`poset_acc_test: Ace251gm_day"
     - "51.0 Hz"
     - "`timeday:day"
     r_min:
@@ -416,9 +416,9 @@ implementations:
     - "19 us"
   modelAce251gmNight:
     f_max:
-    - "`poset_fp: Ace251gm_night"
-    - "`poset_fn: Ace251gm_night"
-    - "`poset_acc: Ace251gm_night"
+    - "`poset_fp_test: Ace251gm_night"
+    - "`poset_fn_test: Ace251gm_night"
+    - "`poset_acc_test: Ace251gm_night"
     - "51.0 Hz"
     - "`timeday:night"
     r_min:
@@ -429,9 +429,9 @@ implementations:
 
   modelAce160umDay:
     f_max:
-    - "`poset_fp: Ace2160um_day"
-    - "`poset_fn: Ace2160um_day"
-    - "`poset_acc: Ace2160um_day"
+    - "`poset_fp_test: Ace2160um_day"
+    - "`poset_fn_test: Ace2160um_day"
+    - "`poset_acc_test: Ace2160um_day"
     - "160.0 Hz"
     - "`timeday:day"
     r_min:
@@ -441,9 +441,9 @@ implementations:
     - "19 us"
   modelAce160umNight:
     f_max:
-    - "`poset_fp: Ace2160um_night"
-    - "`poset_fn: Ace2160um_night"
-    - "`poset_acc: Ace2160um_night"
+    - "`poset_fp_test: Ace2160um_night"
+    - "`poset_fn_test: Ace2160um_night"
+    - "`poset_acc_test: Ace2160um_night"
     - "160.0 Hz"
     - "`timeday:night"
     r_min:
@@ -453,9 +453,9 @@ implementations:
     - "19 us"
   modelAce22gmDay:
     f_max:
-    - "`poset_fp: Ace22gm_day"
-    - "`poset_fn: Ace22gm_day"
-    - "`poset_acc: Ace22gm_day"
+    - "`poset_fp_test: Ace22gm_day"
+    - "`poset_fn_test: Ace22gm_day"
+    - "`poset_acc_test: Ace22gm_day"
     - "22.0 Hz"
     - "`timeday:day"
     r_min:
@@ -465,9 +465,9 @@ implementations:
     - "10 us"
   modelAce22gmNight:
     f_max:
-    - "`poset_fp: Ace22gm_night"
-    - "`poset_fn: Ace22gm_night"
-    - "`poset_acc: Ace22gm_night"
+    - "`poset_fp_test: Ace22gm_night"
+    - "`poset_fn_test: Ace22gm_night"
+    - "`poset_acc_test: Ace22gm_night"
     - "22.0 Hz"
     - "`timeday:night"
     r_min:
@@ -477,9 +477,9 @@ implementations:
     - "10 us"
   modelAce13gmDay:
     f_max:
-    - "`poset_fp: Ace13gm_day"
-    - "`poset_fn: Ace13gm_day"
-    - "`poset_acc: Ace13gm_day"
+    - "`poset_fp_test: Ace13gm_day"
+    - "`poset_fn_test: Ace13gm_day"
+    - "`poset_acc_test: Ace13gm_day"
     - "13.0 Hz"
     - "`timeday:day"
     r_min:
@@ -489,9 +489,9 @@ implementations:
     - "12 us"
   modelAce13gmNight:
     f_max:
-    - "`poset_fp: Ace13gm_night"
-    - "`poset_fn: Ace13gm_night"
-    - "`poset_acc: Ace13gm_night"
+    - "`poset_fp_test: Ace13gm_night"
+    - "`poset_fn_test: Ace13gm_night"
+    - "`poset_acc_test: Ace13gm_night"
     - "13.0 Hz"
     - "`timeday:night"
     r_min:
@@ -501,9 +501,9 @@ implementations:
     - "12 us"
   modelAce7gmDay:
     f_max:
-    - "`poset_fp: Ace7gm_day"
-    - "`poset_fn: Ace7gm_day"
-    - "`poset_acc: Ace7gm_day"
+    - "`poset_fp_test: Ace7gm_day"
+    - "`poset_fn_test: Ace7gm_day"
+    - "`poset_acc_test: Ace7gm_day"
     - "7.0 Hz"
     - "`timeday:day"
     r_min:
@@ -513,9 +513,9 @@ implementations:
     - "16 us"
   modelAce7gmNight:
     f_max:
-    - "`poset_fp: Ace7gm_night"
-    - "`poset_fn: Ace7gm_night"
-    - "`poset_acc: Ace7gm_night"
+    - "`poset_fp_test: Ace7gm_night"
+    - "`poset_fn_test: Ace7gm_night"
+    - "`poset_acc_test: Ace7gm_night"
     - "7.0 Hz"
     - "`timeday:night"
     r_min:
@@ -525,9 +525,9 @@ implementations:
     - "16 us"
   modelAce5gmDay:
     f_max:
-    - "`poset_fp: Ace5gm_day"
-    - "`poset_fn: Ace5gm_day"
-    - "`poset_acc: Ace5gm_day"
+    - "`poset_fp_test: Ace5gm_day"
+    - "`poset_fn_test: Ace5gm_day"
+    - "`poset_acc_test: Ace5gm_day"
     - "5.0 Hz"
     - "`timeday:day"
     r_min:
@@ -537,9 +537,9 @@ implementations:
     - "16 us"
   modelAce5gmNight:
     f_max:
-    - "`poset_fp: Ace5gm_night"
-    - "`poset_fn: Ace5gm_night"
-    - "`poset_acc: Ace5gm_night"
+    - "`poset_fp_test: Ace5gm_night"
+    - "`poset_fn_test: Ace5gm_night"
+    - "`poset_acc_test: Ace5gm_night"
     - "5.0 Hz"
     - "`timeday:night"
     r_min:
@@ -549,9 +549,9 @@ implementations:
     - "16 us"
   modelAce15umDay:
     f_max:
-    - "`poset_fp: Ace15um_day"
-    - "`poset_fn: Ace15um_day"
-    - "`poset_acc: Ace15um_day"
+    - "`poset_fp_test: Ace15um_day"
+    - "`poset_fn_test: Ace15um_day"
+    - "`poset_acc_test: Ace15um_day"
     - "15.0 Hz"
     - "`timeday:day"
     r_min:
@@ -561,9 +561,9 @@ implementations:
     - "15 us"
   modelAce15umNight:
     f_max:
-    - "`poset_fp: Ace15um_night"
-    - "`poset_fn: Ace15um_night"
-    - "`poset_acc: Ace15um_night"
+    - "`poset_fp_test: Ace15um_night"
+    - "`poset_fn_test: Ace15um_night"
+    - "`poset_acc_test: Ace15um_night"
     - "15.0 Hz"
     - "`timeday:night"
     r_min:
@@ -573,9 +573,9 @@ implementations:
     - "15 us"
   modelPointgreyDay:
     f_max:
-    - "`poset_fp: Pointgrey_day"
-    - "`poset_fn: Pointgrey_day"
-    - "`poset_acc: Pointgrey_day"
+    - "`poset_fp_test: Pointgrey_day"
+    - "`poset_fn_test: Pointgrey_day"
+    - "`poset_acc_test: Pointgrey_day"
     - "15.0 Hz"
     - "`timeday:day"
     r_min:
@@ -585,9 +585,9 @@ implementations:
     - "20 us"
   modelPointgreyNight:
     f_max:
-    - "`poset_fp: Pointgrey_night"
-    - "`poset_fn: Pointgrey_night"
-    - "`poset_acc: Pointgrey_night"
+    - "`poset_fp_test: Pointgrey_night"
+    - "`poset_fn_test: Pointgrey_night"
+    - "`poset_acc_test: Pointgrey_night"
     - "15.0 Hz"
     - "`timeday:night"
     r_min:

@@ -1,7 +1,7 @@
 dp {
-   provides false_positives [`poset_fp]
-   provides false_negatives [`poset_fn]
-   provides accuracy [`poset_acc]
+   provides false_positives [`poset_fp_test]
+   provides false_negatives [`poset_fn_test]
+   provides accuracy [`poset_acc_test]
    provides frequency [Hz]
    provides time_day [`timeday]
    requires cost [CHF]

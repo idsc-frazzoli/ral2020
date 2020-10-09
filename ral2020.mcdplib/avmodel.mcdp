@@ -57,6 +57,6 @@ required operational_cost >= cost_op_veh required by vehicle_model
 required energy_externalities >= energy_externalities required by vehicle_model
 required discomfort >= discomfort required by discomfort_model
 
-1 person/car <= capacity provided by vehicle_model
+1 pax/car <= capacity provided by vehicle_model
 ignore driving_range provided by vehicle_model
 }
