@@ -7,6 +7,8 @@ mcdp {
 
     # Functionality
     provides total_requests using amod_model
+    provides time_day using vehicle_model
+    provides people_street using vehicle_model
     # Resources
     # Total cost of having and operating the DC transportation system
     requires cost_operation [$/hour]
@@ -65,7 +67,7 @@ mcdp {
     # connecting Subway DP with AMoD DP
     number_subway required by amod_model <= number_subway provided by subway_model
     # connecting AVs DP with AMoD DP
-    velocity_av required by amod_model ≼ velocity provided by vehicle_model
+    velocity_av required by amod_model ≼ speed_cruise provided by vehicle_model
     # connecting ESs DP with AMoD DP
     velocity_mm required by amod_model <= velocity provided by micromobility_model
 
@@ -78,12 +80,11 @@ mcdp {
     required time >= time_travel required by amod_model
 
     # General things
-    provides environment using vehicle_model
-    provided environment >= `timeday: day
-    requires danger using vehicle_model
+    provided time_day <= `timeday: day
+    provided people_street <= 1 pax/km
+    required danger >= danger required by vehicle_model
     required danger >= 1 kg*m/s
     #discomfort required by vehicle_model >= 1.0
-    requires discomfort using vehicle_model
+    required discomfort >= discomfort required by vehicle_model
     required discomfort >= 1.0
-    ignore d_subway required by amod_model
 }

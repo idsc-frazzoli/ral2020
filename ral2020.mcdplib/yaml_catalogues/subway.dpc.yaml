@@ -14,12 +14,12 @@ implementations:
   modelsub2:
     f_max:
     - "Nat: 56"
-    r_min
+    r_min:
     - "145000000 $"
     - "222000000 $/year"
   modelsub2:
     f_max:
     - "Nat: 112"
-    r_min
+    r_min:
     - "145000000 $"
     - "295000000 $/year"

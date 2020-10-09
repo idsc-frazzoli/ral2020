@@ -8,18 +8,15 @@ dp {
    requires acc_max [m/s^2]
    requires acc_min [m/s^2]
    # Sensing performance
-   requires false_positives [dimensionless]
-   requires false_negatives [dimensionless]
-   requires accuracy [dimensionless]
+   requires false_positives [`poset_fp_test]
+   requires false_negatives [`poset_fn_test]
+   requires accuracy [`poset_acc_test]
    requires frequency [Hz]
    # Computation
-   requires implement_brake_control [dimensionless]
+   requires implement_brake_control [Hz]
    # Autonomy performance
-   #requires risk [dimensionless]
-   #requires hazard [kg*m/s]
    requires danger [kg*m/s]
    requires discomfort_brake [dimensionless]
-   requires latency_braking [us]
 
    implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/brake_control.dpc.yaml")
 }
