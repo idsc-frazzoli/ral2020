@@ -21,7 +21,6 @@ def transformationAmod(fileName):
                 target_file.write("    " + "- " + "\"" + data[index][7] + " meter/s\" \n")
                 target_file.write("    " + "- " + "\"" + data[index][8] + " meter/s\" \n")
                 target_file.write("    " + "- " + "\"" + data[index][9] + " Nat\" \n")
-                target_file.write("    " + "- " + "\"" + data[index][10] + " kg/s\" \n")
 
 def transformationLQG(fileName):
     with open(fileName) as f:
@@ -42,5 +41,5 @@ def transformationLQG(fileName):
                 target_file.write("    " + "- " + "\"" + str(freq) + " Hz\" \n")
 
 
-#transformationAmod("amod.csv")
-transformationLQG("cat_lqg.csv")
+transformationAmod("amod.csv")
+#transformationLQG("cat_lqg.csv")

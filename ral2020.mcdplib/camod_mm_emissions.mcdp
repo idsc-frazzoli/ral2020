@@ -14,9 +14,13 @@ mcdp {
     requires CO2_total [kg/s]
     # Average travel time for the passengers
     requires time [s]
+    # Danger
+    requires danger [kg*m/s]
+    # Discomfort
+    requires discomfort [dimensionless]
 
     # Defining the costs (operational and fixed) for AVs, ESs, and Subway
-    # Operational costs
+    # Operational costs and their sums
     operational_cost_veh  = operational_cost required by vehicle_model · d_road_av required by amod_model
     operational_cost_mm  = operational_cost_mm required by micromobility_model * d_road_mm required by amod_model
     operational_cost_sub  = operational_cost_sub required by subway_model
@@ -45,12 +49,10 @@ mcdp {
 
     # Emissions
     # for AVs
-    # CO2_road_av            = CO2_road_av required by amod_model
-    ignore CO2_road_av required by amod_model
     CO2_road_av = energy_externalities required by vehicle_model * d_road_av required by amod_model
     # for ESs
     CO2_road_mm_meter      = emissions required by micromobility_model
-    CO2_road_mm           = CO2_road_mm_meter * d_road_mm required by amod_model
+    CO2_road_mm            = CO2_road_mm_meter * d_road_mm required by amod_model
     # for Subway
     # 360'000 tons in a year, with 226 trains in total
     CO2_subway_train_sec   = 0.063 kg/s
@@ -59,7 +61,7 @@ mcdp {
     CO2_sum                = CO2_road_av + CO2_road_mm + CO2_subway
 
     # Constraints
-    # structural ones
+    # Structural ones
     # connecting Subway DP with AMoD DP
     number_subway required by amod_model <= number_subway provided by subway_model
     # connecting AVs DP with AMoD DP
@@ -75,9 +77,13 @@ mcdp {
     # on travel time
     required time >= time_travel required by amod_model
 
-    # Ignored things
-    environment provided by vehicle_model >= `timeday: day
-    danger required by vehicle_model >= 1 kg*m/s
-    discomfort required by vehicle_model >= 1.0
-    #ignore d_subway required by amod_model
+    # General things
+    provides environment using vehicle_model
+    provided environment >= `timeday: day
+    requires danger using vehicle_model
+    required danger >= 1 kg*m/s
+    #discomfort required by vehicle_model >= 1.0
+    requires discomfort using vehicle_model
+    required discomfort >= 1.0
+    ignore d_subway required by amod_model
 }

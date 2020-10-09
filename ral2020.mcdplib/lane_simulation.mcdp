@@ -14,7 +14,7 @@ provides system_noise [dimensionless]
 requires cost [CHF]
 requires power [W]
 requires mass [g]
-requires computation [ops]
+requires computation [op/s]
 requires tracking_error [dimensionless]
 requires control_effort [dimensionless]
 
