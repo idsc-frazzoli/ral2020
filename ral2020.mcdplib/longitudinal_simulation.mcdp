@@ -22,9 +22,10 @@ requires discomfort_brake [dimensionless]
 
 # Setup constraints
 ## Sensing and Control
-false_positives required by brake_control_model <= false_positives provided by long_sensing_model
-false_negatives required by brake_control_model <= false_negatives provided by long_sensing_model
-accuracy required by brake_control_model <= accuracy provided by long_sensing_model
+#false_positives required by brake_control_model <= false_positives provided by long_sensing_model
+#false_negatives required by brake_control_model <= false_negatives provided by long_sensing_model
+#accuracy required by brake_control_model <= accuracy provided by long_sensing_model
+sen_performance required by brake_control_model <= sen_performance provided by long_sensing_model
 frequency required by brake_control_model <= frequency provided by long_sensing_model
 latency required by long_sensing_model <= latency provided by brake_control_model
 ## Control and Implementation
@@ -44,4 +45,5 @@ required discomfort_brake >= discomfort_brake required by brake_control_model
 required v_max >= speed_max required by brake_control_model
 required acc_max >= acc_max required by brake_control_model
 required acc_min >= acc_min required by brake_control_model
+#required dyn_perf >= dynamic_performance required by brake_control_model
 }

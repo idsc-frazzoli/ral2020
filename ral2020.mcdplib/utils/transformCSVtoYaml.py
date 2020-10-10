@@ -34,12 +34,13 @@ def transformationLQG(fileName):
                 target_file.write("    " + "- " + "\""+ data[index][1] + " dimensionless\" \n")
                 target_file.write("    r_min:\n")
                 target_file.write("    " + "- " + "\"" + data[index][2] + " dimensionless\" \n")
-                target_file.write("    " + "- " + "\"" + data[index][3] + " dimensionless\" \n")
+                obs_info = 1.0 / float(data[index][3])
+                target_file.write("    " + "- " + "\"" + str(obs_info) + " dimensionless\" \n")
                 freq = 1.0 / float(data[index][4])
                 target_file.write("    " + "- " + "\"" + str(freq) + " Hz\" \n")
                 target_file.write("    " + "- " + "\"" + data[index][5] + " dimensionless\" \n")
                 target_file.write("    " + "- " + "\"" + str(freq) + " Hz\" \n")
 
 
-transformationAmod("amod.csv")
-#transformationLQG("cat_lqg.csv")
+#transformationAmod("amod.csv")
+transformationLQG("cat_lqg.csv")

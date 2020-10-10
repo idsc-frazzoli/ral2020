@@ -7,10 +7,12 @@ dp {
    requires speed_max [m/s]
    requires acc_max [m/s^2]
    requires acc_min [m/s^2]
+   #requires dynamic_performance [`dynamic_performance]
    # Sensing performance
-   requires false_positives [`poset_fp_test]
-   requires false_negatives [`poset_fn_test]
-   requires accuracy [`poset_acc_test]
+   #requires false_positives [`poset_fp]
+   #requires false_negatives [`poset_fn]
+   #requires accuracy [`poset_acc]
+   requires sen_performance [`sen_prod]
    requires frequency [Hz]
    # Computation
    requires implement_brake_control [Hz]
@@ -18,5 +20,6 @@ dp {
    requires danger [kg*m/s]
    requires discomfort_brake [dimensionless]
 
-   implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/brake_control.dpc.yaml")
+   #implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/brake_control.dpc.yaml")
+   implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/brake_control_prod.dpc.yaml")
 }
