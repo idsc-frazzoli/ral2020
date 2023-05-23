@@ -10,5 +10,6 @@ dp {
         # Emissions per mile
         requires emissions [kg/mile]
 
-        implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/micromobility.dpc.yaml")
+        # implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/micromobility.dpc.yaml")
+        implemented-by yaml resource('micromobility.dpc.yaml')
 }
