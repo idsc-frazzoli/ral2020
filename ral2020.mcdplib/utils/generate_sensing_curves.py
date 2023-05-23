@@ -1,5 +1,6 @@
-import yaml
 import numpy as np
+import yaml
+
 
 class curve:
     def __init__(self):
@@ -7,6 +8,7 @@ class curve:
         self.fn = []
         self.fp = []
         self.acc = []
+
 
 def get_curves(fileName):
     sensor_names = []
@@ -29,9 +31,10 @@ def get_curves(fileName):
             all_curves.append(s)
     return all_curves
 
-def compare_arrays(a,b):
+
+def compare_arrays(a, b):
     " assuming same size"
-    assert len(a)==len(b)
+    assert len(a) == len(b)
     pairwise_comp = []
     for i in range(len(a)):
         aa = float(a[i])
@@ -47,6 +50,7 @@ def compare_arrays(a,b):
     else:
         ret = 0
     return ret
+
 
 def compare_curves(array_curves):
     fn_order = np.zeros((len(array_curves), len(array_curves)))
@@ -64,6 +68,7 @@ def compare_curves(array_curves):
                     acc_order[id_s][id_t] = 1
     return fn_order, fp_order, acc_order
 
+
 def produce_poset_fn(fn_order, array_curves):
     poset_fn = open("poset_fn.mcdp_poset", 'w')
     poset_fn.write("add_bottom poset {\n")
@@ -72,10 +77,11 @@ def produce_poset_fn(fn_order, array_curves):
     poset_fn.write("\n")
     for i in range(len(fn_order)):
         for j in range(len(fn_order)):
-            if (i!=j):
+            if (i != j):
                 if (fn_order[i][j]):
                     poset_fn.write(array_curves[i].sen + " <= " + array_curves[j].sen + "\n")
     poset_fn.write("}")
+
 
 def produce_poset_fp(fp_order, array_curves):
     poset_fp = open("poset_fp.mcdp_poset", 'w')
@@ -90,6 +96,7 @@ def produce_poset_fp(fp_order, array_curves):
                     poset_fp.write(array_curves[i].sen + " <= " + array_curves[j].sen + "\n")
     poset_fp.write("}")
 
+
 def produce_poset_acc(acc_order, array_curves):
     poset_acc = open("poset_acc.mcdp_poset", 'w')
     poset_acc.write("add_bottom poset {\n")
@@ -103,7 +110,8 @@ def produce_poset_acc(acc_order, array_curves):
                     poset_acc.write(array_curves[i].sen + " <= " + array_curves[j].sen + "\n")
     poset_acc.write("}")
 
-def produce_prod_poset(fp_order, fn_order, acc_order,array_curves):
+
+def produce_prod_poset(fp_order, fn_order, acc_order, array_curves):
     poset_prod = open("sen_prod.mcdp_poset", 'w')
     poset_prod.write("add_bottom poset {\n")
     for a in array_curves:
@@ -111,16 +119,20 @@ def produce_prod_poset(fp_order, fn_order, acc_order,array_curves):
     poset_prod.write("\n")
     for i in range(len(fp_order)):
         for j in range(len(fp_order)):
-            if(i!=j):
+            if (i != j):
                 if (fp_order[i][j] and fn_order[i][j] and acc_order[i][j]):
                     poset_prod.write(array_curves[i].sen + " <= " + array_curves[j].sen + "\n")
     poset_prod.write("}")
 
-curves_here = get_curves('all_curves.yaml')
-fn, fp, acc = compare_curves(curves_here)
-produce_prod_poset(fp,fn,acc,curves_here)
-produce_poset_fn(fn, curves_here)
-produce_poset_fp(fp, curves_here)
-produce_poset_acc(acc, curves_here)
+
+def go() -> None:
+    curves_here = get_curves('all_curves.yaml')
+    fn, fp, acc = compare_curves(curves_here)
+    produce_prod_poset(fp, fn, acc, curves_here)
+    produce_poset_fn(fn, curves_here)
+    produce_poset_fp(fp, curves_here)
+    produce_poset_acc(acc, curves_here)
 
 
+if __name__ == '__main__':
+    go()
