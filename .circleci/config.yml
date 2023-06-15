@@ -11,9 +11,9 @@ workflows:
 
 
 jobs:
-  test-job: 
+  test-job:
 
-    resource_class: co-design-models/r4
+    resource_class: idsc-frazzoli/r4
     docker:
     - image: ${DOCKER_REGISTRY}/${DOCKER_TARGET_ORG}/${DOCKER_REPO_PREFIX}zuper-mcdp-deploy:${Z_DISTRO}
       auth:
@@ -27,7 +27,7 @@ jobs:
         command: |
           mkdir -p ~/.ssh
           echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
-          
+
     - run:
         name: Python stats
         command: |
