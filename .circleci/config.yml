@@ -2,15 +2,13 @@ version: 2.1
 parameters:
   context_name:
     type: string
-    default: "<< pipeline.git.branch >>"
+#    default: "<< pipeline.git.branch >>"
 workflows:
   test:
     jobs:
     - test-job:
         context: "<< pipeline.parameters.context_name >>"
-        filters:
-          branches:
-            ignore: /.*/
+
 
 jobs:
   test-job:
