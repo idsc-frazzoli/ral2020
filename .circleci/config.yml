@@ -8,7 +8,9 @@ workflows:
     jobs:
     - test-job:
         context: "<< pipeline.parameters.context_name >>"
-
+        filters:
+          branches:
+            ignore: /.*/
 
 jobs:
   test-job:
