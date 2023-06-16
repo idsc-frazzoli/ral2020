@@ -2,7 +2,7 @@ version: 2.1
 parameters:
   context_name:
     type: string
-#    default: "<< pipeline.git.branch >>"
+    default: "<< pipeline.git.branch >>"
 workflows:
   test:
     jobs:
