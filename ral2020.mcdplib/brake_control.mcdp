@@ -20,6 +20,7 @@ dp {
    requires danger [kg*m/s]
    requires discomfort_brake [dimensionless]
 
-   #implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/brake_control.dpc.yaml")
-   implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/brake_control_prod.dpc.yaml")
+   # implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/brake_control.dpc.yaml")
+   # implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/brake_control_prod.dpc.yaml")
+   implemented-by yaml resource('brake_control_prod.dpc.yaml')
 }

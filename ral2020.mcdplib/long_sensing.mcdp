@@ -11,5 +11,6 @@ dp {
    requires latency [us]
 
    #implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/long_sensing.dpc.yaml")
-   implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/long_sensing_prod.dpc.yaml")
+   # implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/long_sensing_prod.dpc.yaml")
+   implemented-by yaml resource('long_sensing_prod.dpc.yaml')
    }

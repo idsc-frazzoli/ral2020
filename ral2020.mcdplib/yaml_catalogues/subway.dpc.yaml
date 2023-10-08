@@ -17,7 +17,7 @@ implementations:
     r_min:
     - "145000000 $"
     - "222000000 $/year"
-  modelsub2:
+  modelsub3:
     f_max:
     - "Nat: 112"
     r_min:

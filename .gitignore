@@ -1,3 +1,7 @@
 out
 out-last
 .DS_Store
+*.profile
+*.pstat
+*.pstat*
+*.profile*

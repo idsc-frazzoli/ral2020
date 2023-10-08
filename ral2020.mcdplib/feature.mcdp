@@ -5,5 +5,6 @@ dp {
    requires resolution [pixel/steradian]
    requires frequency [Hz]
 
-   implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/feature.dpc.yaml")
+   # implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/feature.dpc.yaml")
+   implemented-by yaml resource('feature.dpc.yaml')
 }

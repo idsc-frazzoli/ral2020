@@ -7,5 +7,6 @@ dp {
    requires power [W]
 
 
-   implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/lane_cameras.dpc.yaml")
+ #  implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/lane_cameras.dpc.yaml")
+    implemented-by yaml resource('lane_cameras.dpc.yaml')
 }

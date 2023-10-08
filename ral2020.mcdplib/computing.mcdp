@@ -4,5 +4,6 @@ dp {
    requires mass [g]
    requires power [W]
 
-   implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/computing.dpc.yaml")
+   # implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/computing.dpc.yaml")
+   implemented-by yaml resource('computing.dpc.yaml')
 }

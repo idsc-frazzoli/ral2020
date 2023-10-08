@@ -6,6 +6,7 @@ dp {
     # No functionality
     provides number_subway [Nat]
 
-    implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/subway.dpc.yaml")
+    # implemented-by code mcdp_importers.read_yaml(fn="ral2020.mcdplib/yaml_catalogues/subway.dpc.yaml")
+    implemented-by yaml resource('subway.dpc.yaml')
 
 }
