@@ -64,7 +64,7 @@ jobs:
             config manager_wait 0.005 
             config multiprocessing_strategy fork
           END
-          mcdp-load-libraries -o out  -c "-rparmake n=4" || true 
+          mcdp-load-libraries -o out  -c "-rparmake n=4; -rparmake n=4" || true
           compmake out/compmake -c "ls; stats; details failed; why failed"
           comptests-to-junit --fail-if-failed out/compmake --output "out/comptests/junit/junit.xml" --output-txt "out/comptests/junit/summary.txt" --known-failures .circleci/known_failures.yaml
     - store_test_results:
