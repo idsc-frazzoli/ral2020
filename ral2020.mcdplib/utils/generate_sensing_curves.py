@@ -71,7 +71,7 @@ def compare_curves(array_curves):
 
 def produce_poset_fn(fn_order, array_curves):
     poset_fn = open("poset_fn.mcdp_poset", 'w')
-    poset_fn.write("add_bottom poset {\n")
+    poset_fn.write(" poset {\n")
     for a in array_curves:
         poset_fn.write(a.sen + ' ')
     poset_fn.write("\n")
@@ -85,7 +85,7 @@ def produce_poset_fn(fn_order, array_curves):
 
 def produce_poset_fp(fp_order, array_curves):
     poset_fp = open("poset_fp.mcdp_poset", 'w')
-    poset_fp.write("add_bottom poset {\n")
+    poset_fp.write("  poset {\n")
     for a in array_curves:
         poset_fp.write(a.sen + ' ')
     poset_fp.write("\n")
@@ -99,7 +99,7 @@ def produce_poset_fp(fp_order, array_curves):
 
 def produce_poset_acc(acc_order, array_curves):
     poset_acc = open("poset_acc.mcdp_poset", 'w')
-    poset_acc.write("add_bottom poset {\n")
+    poset_acc.write(" poset {\n")
     for a in array_curves:
         poset_acc.write(a.sen + ' ')
     poset_acc.write("\n")
@@ -113,7 +113,7 @@ def produce_poset_acc(acc_order, array_curves):
 
 def produce_prod_poset(fp_order, fn_order, acc_order, array_curves):
     poset_prod = open("sen_prod.mcdp_poset", 'w')
-    poset_prod.write("add_bottom poset {\n")
+    poset_prod.write("poset {\n")
     for a in array_curves:
         poset_prod.write(a.sen + ' ')
     poset_prod.write("\n")
